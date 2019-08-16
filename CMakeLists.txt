@@ -3,6 +3,9 @@ project(oj-problem-solutions)
 
 set(CMAKE_CXX_STANDARD 14)
 
+add_executable(Solution leetcode/031.\ Next\ Permutation/Solution.cpp)
+
+#[[
 file( GLOB_RECURSE APP_SOURCES leetcode/*/*.c leetcode/*/*.cpp)
 foreach( sourcefile ${APP_SOURCES} )
     file(RELATIVE_PATH relative "${CMAKE_CURRENT_SOURCE_DIR}" "${sourcefile}")
@@ -22,3 +25,4 @@ foreach( sourcefile ${APP_SOURCES} )
 
     add_executable( ${fullname} ${sourcefile} )
 endforeach( sourcefile ${APP_SOURCES} )
+]]
