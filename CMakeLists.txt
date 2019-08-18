@@ -3,7 +3,7 @@ project(oj-problem-solutions)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Solution leetcode/031.\ Next\ Permutation/Solution.cpp)
+add_executable(Solution leetcode/199.\ Binary\ Tree\ Right\ Side\ View/Solution2.cpp)
 
 #[[
 file( GLOB_RECURSE APP_SOURCES leetcode/*/*.c leetcode/*/*.cpp)
