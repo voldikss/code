@@ -19,7 +19,7 @@ class Solution:
         # for i in range(len(b)):
         #     ans = ans * tenPow(tenPow(a, b[i]), 10**i)
         #     ans %= 1337
-        
+
         # 这个方法巧妙
         for i in b:
             ans = (pow_mod(ans, 10) * pow_mod(a, i)) % 1337
