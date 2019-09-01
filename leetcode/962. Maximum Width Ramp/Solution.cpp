@@ -13,30 +13,31 @@
 using namespace std;
 
 class Solution {
-public:
-  int maxWidthRamp(vector<int> &A) {
-    vector<pair<int, int>> indexHeap;
-    int n = A.size();
-    for (int i = 0; i < n; ++i) {
-      indexHeap.push_back({i, A[i]});
-    }
-    sort(indexHeap.begin(), indexHeap.end(), cmp);
+  public:
+    int maxWidthRamp(vector<int> &A) {
+        vector<pair<int, int>> indexHeap;
+        int n = A.size();
+        for (int i = 0; i < n; ++i) {
+            indexHeap.push_back({i, A[i]});
+        }
+        sort(indexHeap.begin(), indexHeap.end(), cmp);
 
-    int maxWidth = 0;
-    int minIndex = indexHeap[0].first;
-    for (int i = 0; i < n; ++i) {
-      maxWidth = max(maxWidth, indexHeap[i].first - minIndex);
-      minIndex = min(minIndex, indexHeap[i].first);
+        int maxWidth = 0;
+        int minIndex = indexHeap[0].first;
+        // 这个循环太巧了,没有用二重循环就可以...
+        for (int i = 0; i < n; ++i) {
+            maxWidth = max(maxWidth, indexHeap[i].first - minIndex);
+            minIndex = min(minIndex, indexHeap[i].first);
+        }
+        return maxWidth;
     }
-    return maxWidth;
-  }
 
-  static bool cmp(pair<int, int> a, pair<int, int> b) {
-    if (a.second == b.second)
-      return a.first < b.first;
-    else
-      return a.second < b.second;
-  }
+    static bool cmp(pair<int, int> a, pair<int, int> b) {
+        if (a.second == b.second)
+            return a.first < b.first;
+        else
+            return a.second < b.second;
+    }
 };
 
 /* 超时 */
@@ -58,9 +59,9 @@ public:
 // };
 
 int main() {
-  Solution s;
-  vector<int> sample = {6, 0, 8, 2, 1, 5};
-  // vector<int> sample = {9, 8, 1, 0, 1, 9, 4, 0, 4, 1};
-  int res = s.maxWidthRamp(sample);
-  cout << res << endl;
+    Solution s;
+    vector<int> sample = {6, 0, 8, 2, 1, 5};
+    // vector<int> sample = {9, 8, 1, 0, 1, 9, 4, 0, 4, 1};
+    int res = s.maxWidthRamp(sample);
+    cout << res << endl;
 }
