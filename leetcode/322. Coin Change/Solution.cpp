@@ -25,14 +25,14 @@ public:
     if (amount == 0) return 0;
     if (amount != -2) return cache[amount];
 
-    int ans = INT_MAX;
+    int ans = INT64_MAX;
     for (int coin : coins) {
       if (amount - coin < 0) continue;
       int sub = helper(coins, amount - coin, cache);
       if (sub == -1) continue;
       ans = min(ans, sub + 1);
     }
-    cache[amount] = (ans == INT_MAX) ? -1 : ans;
+    cache[amount] = (ans == INT64_MAX) ? -1 : ans;
     return cache[amount];
   }
 };
