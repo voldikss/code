@@ -1,3 +1,4 @@
-### TODO:
+### Nice Problems for me:
 
-- [322. Coin Change](https://leetcode-cn.com/problems/coin-change/)
+- [084. Largest Rectangle in Histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram)
+- [322. coin change](https://leetcode-cn.com/problems/coin-change/)
