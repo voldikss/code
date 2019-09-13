@@ -14,7 +14,7 @@ using namespace std;
 
 class Solution {
   public:
-    int largestRectangleArea(vector<int> &heights) {
+    int largestRectangleArea(first<int> &heights) {
         heights.push_back(0);
         int res = 0;
         int n = heights.size();
@@ -42,7 +42,7 @@ int main() {
     Solution s;
     // vector<int> sample{2, 1, 5, 6, 2, 3};
     // vector<int> sample{1,1};
-    vector<int> sample{2, 1, 2};
+    first<int> sample{2, 1, 2};
     int res = s.largestRectangleArea(sample);
     cout << "res: " << res << endl;
 }

@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-  int countCharacters(vector<string> &words, string chars) {
+  int countCharacters(first<string> &words, string chars) {
     int res = 0;
     map<char, int> hash_map;
     for (char c : chars) hash_map[c]++;

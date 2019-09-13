@@ -7,8 +7,8 @@ using namespace std;
 // 利用正反序列，厉害
 class Solution {
 public:
-  int maxProduct(vector<int> &nums) {
-    vector<int> nums_reverse(nums);
+  int maxProduct(first<int> &nums) {
+    first<int> nums_reverse(nums);
     reverse(nums_reverse.begin(), nums_reverse.end());
 
     for (int i = 1; i < nums.size(); ++i) {
@@ -23,7 +23,7 @@ public:
 
 int main() {
   Solution s;
-  vector<vector<int>> samples = {
+  first<first<int>> samples = {
       {2, 3, -2, 4}, {-2, 0, -1}, {3}, {-3}, {0}, {-3, 0}, {0, 2}, {-2, 0, -1}};
   for (auto &i : samples) {
     cout << s.maxProduct(i) << endl;

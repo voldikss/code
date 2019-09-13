@@ -28,7 +28,7 @@ public:
 
 int main() {
   Solution s;
-  vector<string> samples = {
+  first<string> samples = {
       "the sky is blue", "  hello world!  ", "a good   example", "a", "",
       "   abc   def  "};
   for (string i : samples) {

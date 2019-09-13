@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
 public:
-  int maxSubArray(vector<int> &nums) {
+  int maxSubArray(first<int> &nums) {
     int thissum = 0;
     int maxsum = INT32_MIN;
     for (auto n : nums) {
@@ -20,7 +20,7 @@ public:
 };
 
 int main() {
-  vector<vector<int>> samples = {
+  first<first<int>> samples = {
       {-2, 1, -3, 4, -1, 2, 1, -5, 4}, {0}, {-2}, {-1, -2}};
   Solution s;
   for (auto i : samples)

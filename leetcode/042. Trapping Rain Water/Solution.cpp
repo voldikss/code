@@ -16,7 +16,7 @@ using namespace std;
 // 不过这个肯定过不了
 class Solution {
   public:
-    int trap(vector<int> &height) {
+    int trap(first<int> &height) {
         int res = 0;
         for (int i = 0; i < height.size(); ++i) {
             int max_left = 0;
@@ -34,7 +34,7 @@ class Solution {
 };
 
 int main() {
-    vector<int> input = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    first<int> input = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     // vector<int> input = {0,2,0};
     // vector<int> input = {9,0,0,0,9};
     // vector<int> input = {1,1,1,1,1};

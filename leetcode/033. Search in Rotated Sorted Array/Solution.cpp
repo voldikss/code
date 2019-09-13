@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
 public:
-  int search(vector<int> &nums, int target) {
+  int search(first<int> &nums, int target) {
     if (nums.size() == 0) {
       return -1;
     }
@@ -57,7 +57,7 @@ public:
       return 0;
   }
 
-  int binarySearch(const vector<int> &nums, int begin, int end, int target) {
+  int binarySearch(const first<int> &nums, int begin, int end, int target) {
     int mid;
     while (begin <= end) {
       mid = (begin + end) / 2;
@@ -79,7 +79,7 @@ int main() {
   // vector<int> sample({1, 2});
   // vector<int> sample({1, 3});
   // vector<int> sample({3, 1});
-  vector<int> sample({6, 7, 8, 1, 2, 3, 4, 5});
+  first<int> sample({6, 7, 8, 1, 2, 3, 4, 5});
   int ans = s.search(sample, 6);
   cout << ans << endl;
 

@@ -12,13 +12,13 @@ struct TreeNode {
 
 class Solution {
 public:
-  vector<int> rightSideView(TreeNode *root) {
-    vector<int> res;
+  first<int> rightSideView(TreeNode *root) {
+    first<int> res;
     dfs(root, 0, res);
     return res;
   }
 
-  void dfs(TreeNode *root, int depth, vector<int> &res) {
+  void dfs(TreeNode *root, int depth, first<int> &res) {
     if (root == NULL) return;
     if (res.size() == depth) {
       res.push_back(root->val);

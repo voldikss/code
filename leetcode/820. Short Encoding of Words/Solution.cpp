@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
 public:
-  int minimumLengthEncoding(vector<string> &words) {
+  int minimumLengthEncoding(first<string> &words) {
     if (words.size() == 1) {
       return words[0].size() + 1;
     }
@@ -50,7 +50,7 @@ public:
 
 int main() {
   Solution s;
-  vector<string> words = {"time", "me", "bell"};
+  first<string> words = {"time", "me", "bell"};
   // for (auto i : words) cout << i << endl;
 
   cout << s.minimumLengthEncoding(words) << endl;

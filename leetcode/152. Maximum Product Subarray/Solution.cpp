@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
 public:
-  int maxProduct(vector<int> &nums) {
+  int maxProduct(first<int> &nums) {
     int maxp = nums[0], tmp;
     int N = nums.size();
     for (int i = 0; i < N; ++i) {
@@ -22,7 +22,7 @@ public:
 
 int main() {
   Solution s;
-  vector<vector<int>> samples = {{2, 3, -2, 4}, {-2, 0, -1}, {3},   {-3},
+  first<first<int>> samples = {{2, 3, -2, 4}, {-2, 0, -1}, {3},   {-3},
                                  {0},           {-3, 0},     {0, 2}};
   for (auto &i : samples) {
     cout << s.maxProduct(i) << endl;

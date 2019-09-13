@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-  void nextPermutation(vector<int> &nums) {
+  void nextPermutation(first<int> &nums) {
     if (nums.size() <= 1)
       return;
 
@@ -26,13 +26,13 @@ public:
   }
 
 private:
-  void swap(vector<int> &nums, int m, int n) {
+  void swap(first<int> &nums, int m, int n) {
     int tmp = nums[m];
     nums[m] = nums[n];
     nums[n] = tmp;
   }
 
-  void reverse(vector<int> &nums, int start) {
+  void reverse(first<int> &nums, int start) {
     int tmp;
     int m = start;
     int n = nums.size() - 1;
@@ -47,7 +47,7 @@ private:
 
 int main() {
   Solution s;
-  vector<vector<int>> samples = {//          {1},
+  first<first<int>> samples = {//          {1},
                                  //          {1, 3, 2},
                                  //          {3, 2, 1},
                                  {5, 1, 1},

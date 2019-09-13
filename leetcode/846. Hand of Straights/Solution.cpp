@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
 public:
-  bool isNStraightHand(vector<int> &hand, int W) {
+  bool isNStraightHand(first<int> &hand, int W) {
     if (hand.size() % W != 0) return false;
     sort(hand.begin(), hand.end());
 
@@ -52,7 +52,7 @@ public:
 
 int main() {
   Solution s;
-  vector<int> hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
+  first<int> hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
   int W = 3;
   s.isNStraightHand(hand, W);
 }

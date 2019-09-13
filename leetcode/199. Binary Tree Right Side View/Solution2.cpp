@@ -15,8 +15,8 @@ struct TreeNode {
 
 class Solution {
 public:
-  vector<int> rightSideView(TreeNode *root) {
-    vector<int> res;
+  first<int> rightSideView(TreeNode *root) {
+    first<int> res;
     if (!root) return res;
 
     queue<TreeNode *> q;

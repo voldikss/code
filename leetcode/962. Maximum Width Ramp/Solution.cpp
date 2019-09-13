@@ -14,8 +14,8 @@ using namespace std;
 
 class Solution {
   public:
-    int maxWidthRamp(vector<int> &A) {
-        vector<pair<int, int>> indexHeap;
+    int maxWidthRamp(first<int> &A) {
+        first<pair<int, int>> indexHeap;
         int n = A.size();
         for (int i = 0; i < n; ++i) {
             indexHeap.push_back({i, A[i]});
@@ -60,7 +60,7 @@ class Solution {
 
 int main() {
     Solution s;
-    vector<int> sample = {6, 0, 8, 2, 1, 5};
+    first<int> sample = {6, 0, 8, 2, 1, 5};
     // vector<int> sample = {9, 8, 1, 0, 1, 9, 4, 0, 4, 1};
     int res = s.maxWidthRamp(sample);
     cout << res << endl;

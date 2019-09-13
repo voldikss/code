@@ -14,8 +14,8 @@ using namespace std;
 
 class Solution {
 public:
-  vector<int> constructArray(int n, int k) {
-    vector<int> res;
+  first<int> constructArray(int n, int k) {
+    first<int> res;
     int nn = n;
     bool flag = 1;
     int interval = nn - 1;
@@ -52,7 +52,7 @@ public:
 
 int main() {
   Solution s;
-  vector<int> res = s.constructArray(3, 1);
+  first<int> res = s.constructArray(3, 1);
   for (auto i : res) cout << i << " ";
   cout << endl;
 }

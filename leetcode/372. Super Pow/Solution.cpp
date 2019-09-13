@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-  int superPow(int a, vector<int> &b) {
+  int superPow(int a, first<int> &b) {
     int phi = Phi(1337);
     int exp = 0;
     for (int i : b) {

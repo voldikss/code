@@ -20,14 +20,14 @@ int main() {
 
     // get input
     int h;
-    vector<int> height;
+    first<int> height;
     while (cin >> h) height.push_back(h);
 
     // use mono stack
     int i = 0;
     int ans = 0;
     stack<int> s;
-    vector<int> res(height.size(), 0);
+    first<int> res(height.size(), 0);
     height.push_back(INT32_MAX);
 
     for (int i = 0; i < height.size(); ++i) {

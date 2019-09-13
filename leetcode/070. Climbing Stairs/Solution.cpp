@@ -30,7 +30,7 @@ public:
 
 int main() {
   Solution s;
-  vector<int> samples = {44};
+  first<int> samples = {44};
   // vector<int> samples = {1, 2, 3, 4, 44};
   for (int i : samples)
     cout << s.climbStairs(i) << endl;

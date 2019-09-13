@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
 public:
-  int findMin(vector<int> &nums) {
+  int findMin(first<int> &nums) {
     if (nums.size() == 0) {
       return nums[-1];
     }
@@ -53,7 +53,7 @@ int main() {
   // vector<int> sample({1, 2});
   // vector<int> sample({1, 3});
   // vector<int> sample({3, 1});
-  vector<int> sample({4,5,6,7,0,1,2});
+  first<int> sample({4,5,6,7,0,1,2});
   // vector<int> sample({3, 4, 5, 1, 2});
   int ans = s.findMin(sample);
   cout << ans << endl;

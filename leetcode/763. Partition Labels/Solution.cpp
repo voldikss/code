@@ -16,8 +16,8 @@ using namespace std;
 
 class Solution {
   public:
-    vector<int> partitionLabels(string S) {
-        vector<int> res;
+    first<int> partitionLabels(string S) {
+        first<int> res;
         map<char, int> lastPos;
         for (int p = 0; p < S.size(); ++p) {
             lastPos[S[p]] = p;
@@ -39,7 +39,7 @@ class Solution {
 int main() {
     string input = "ababcbacadefegdehijhklij";
     Solution s;
-    vector<int> res = s.partitionLabels(input);
+    first<int> res = s.partitionLabels(input);
     for (auto r : res) cout << r << endl;
     return 0;
 }
