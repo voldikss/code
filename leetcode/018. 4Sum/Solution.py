@@ -11,6 +11,12 @@ class Solution:
             for j in range(i + 1, len(nums) - 2):
                 if j > i + 1 and nums[j] == nums[j - 1]:
                     continue
+                if (nums[i] + nums[j] + nums[j + 1] + nums[j + 2]) > target:
+                    continue
+                if (
+                    nums[i] + nums[j] + nums[len(nums) - 1] + nums[len(nums) - 2]
+                ) < target:
+                    continue
                 lp = j + 1
                 rp = len(nums) - 1
                 while lp < rp:
