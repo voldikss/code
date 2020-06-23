@@ -4,12 +4,15 @@ from typing import List
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
-        end = len(nums) - 1
         res = []
-        for i in range(end):
-            for j in range(i + 1, end):
+        for i in range(len(nums) - 3):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            for j in range(i + 1, len(nums) - 2):
+                if j > i + 1 and nums[j] == nums[j - 1]:
+                    continue
                 lp = j + 1
-                rp = end
+                rp = len(nums) - 1
                 while lp < rp:
                     sum = nums[i] + nums[j] + nums[lp] + nums[rp]
                     if sum < target:
@@ -17,15 +20,13 @@ class Solution:
                     elif sum > target:
                         rp -= 1
                     else:
-                        tmp = [nums[i], nums[j], nums[lp], nums[rp]]
-                        if tmp not in res:
-                            res.append([nums[i], nums[j], nums[lp], nums[rp]])
-                        lv = nums[lp]
-                        while nums[lp] == lv and lp < rp:
+                        res.append([nums[i], nums[j], nums[lp], nums[rp]])
+                        while lp < rp and nums[lp] == nums[lp + 1]:
                             lp += 1
-                        rv = nums[rp]
-                        while nums[rp] == rv and lp < rp:
+                        while lp < rp and nums[rp] == nums[rp - 1]:
                             rp -= 1
+                        lp += 1
+                        rp -= 1
         return res
 
 
@@ -46,4 +47,4 @@ assert s.fourSum([-3, -2, -1, 0, 0, 1, 2, 3], 0) == [
     [-1, 0, 0, 1],
 ]
 assert s.fourSum([0, 0, 0, 0], 0) == [[0, 0, 0, 0]]
-assert s.fourSum([1, -2, -5, -4, -3, 3, 3, 5], -11)
+# assert s.fourSum([1, -2, -5, -4, -3, 3, 3, 5], -11)
