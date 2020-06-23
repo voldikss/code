@@ -1,0 +1,27 @@
+# vim: set fenc=utf-8 ft=dosini:
+
+[start]
+command=:AsyncTask file-build-and-run
+
+[file-build-and-run]
+command:c=gcc "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
+command:cpp=g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
+command:html=:BrowserOpen %
+command:java=javac "$(VIM_FILEPATH)" && java "$(VIM_FILENOEXT)" && echo "$(VIM_PATHNOEXT).class"
+command:javascript=node "$(VIM_FILEPATH)"
+command:lua=lua "$(VIM_FILEPATH)"
+command:make=make -f "$(VIM_FILEPATH)"
+command:markdown=:MarkdownPreview
+command:mysql=:%DB
+command:python=python "$(VIM_FILEPATH)"
+command:rust=RUST_BACKTRACE=1 cargo run
+command:sh=sh "$(VIM_FILEPATH)"
+command:sql=:%DB
+command:typescript=tsc %
+command:vim=:source %
+cwd=$(VIM_FILEDIR)
+output=terminal
+# silent=1
+focus=1
+notify=echo
+save=2
