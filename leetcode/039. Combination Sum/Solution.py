@@ -6,6 +6,7 @@ class Solution:
         def helper(nums1, nums2):
             if sum(nums1) == target:
                 res.append(nums1)
+                return
             elif sum(nums1) > target:
                 return
 
@@ -15,6 +16,7 @@ class Solution:
                 helper(nums, nums2[i:])
 
         res = []
+        candidates.sort()
         helper([], candidates)
         return res
 
