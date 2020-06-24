@@ -4,8 +4,8 @@
 command=:AsyncTask file-build-and-run
 
 [file-build-and-run]
-command:c=gcc "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
-command:cpp=g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
+command:c=gcc -g "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
+command:cpp=g++ -g "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
 command:html=:BrowserOpen %
 command:java=javac "$(VIM_FILEPATH)" && java "$(VIM_FILENOEXT)" && echo "$(VIM_PATHNOEXT).class"
 command:javascript=node "$(VIM_FILEPATH)"
