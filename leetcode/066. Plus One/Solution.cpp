@@ -27,18 +27,27 @@ class Solution {
   public:
     vector<int> plusOne(vector<int> &digits) {
         int i = digits.size() - 1;
-        int flag = 1;
         while (i >= 0) {
-            flag += digits[i];
-            digits[i] = flag % 10;
-            flag /= 10;
-            if (!flag) return digits;
+            digits[i]++;
+            digits[i] %= 10;
+            if (digits[i] != 0) return digits;
             i--;
         }
-        if (flag) digits.insert(digits.begin(), 1);
+        digits.insert(digits.begin(), 1);
         return digits;
     }
 };
+
+// 偶然在解题区看到的一个解法，这个应该是 cpp 里面最短的了吧 Orz
+// class Solution2 {
+//   public:
+//     vector<int> plusOne(vector<int> &digits) {
+//         for (int i = digits.size() - 1; i >= 0; --i)
+//             if ((++digits[i] %= 10) != 0) return digits;
+//         digits.insert(digits.begin(), 1);
+//         return digits;
+//     }
+// };
 
 int main() {
     Solution s;
