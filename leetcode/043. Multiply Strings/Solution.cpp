@@ -27,29 +27,26 @@ class Solution {
   public:
     string multiply(string num1, string num2) {
         vector<int> nums(num1.size() + num2.size(), 0);
-        int tail1 = num1.size() - 1;
-        int tail2 = num2.size() - 1;
-        int tail = nums.size() - 1;
         int p1, p2, p;
         int n1, n2, n;
-        int flag, carry;
+        int carry_multi, carry_plus;
         for (p2 = num2.size() - 1; p2 >= 0; p2--) {
             n2 = num2[p2] - '0';
-            flag = 0;
-            carry = 0;
+            carry_multi = 0;
+            carry_plus = 0;
             for (p1 = num1.size() - 1; p1 >= 0; p1--) {
                 n1 = num1[p1] - '0';
-                n = n1 * n2 + flag;
+                n = n1 * n2 + carry_multi;
+                carry_multi = n / 10;
                 // cout << n1 << " " << n2 << " " << n << endl;
-                p = tail - (tail1 - p1 + tail2 - p2);
-                nums[p] += (n % 10 + carry);
-                carry = nums[p] / 10;
+                p = p1 + p2 + 1;
+                nums[p] += (n % 10 + carry_plus);
+                carry_plus = nums[p] / 10;
                 nums[p] %= 10;
-                flag = n / 10;
                 // cout << nums << endl;
             }
-            if (flag) nums[p - 1] = flag;
-            if (carry) nums[p - 1] += 1;
+            if (carry_multi) nums[p - 1] = carry_multi;
+            if (carry_plus) nums[p - 1] += 1;
         }
 
         string res;
