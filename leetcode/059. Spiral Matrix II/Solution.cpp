@@ -27,28 +27,15 @@ class Solution {
   public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int>> res(n, vector<int>(n, -1));
-        int i = 0;
-        int j = 0;
-        int di = 0;
-        int dj = 1;
-        int cnt = 0;
+        int i = 0, j = 0, di = 0, dj = 1;
         for (int x = 0; x < n * n; x++) {
             res[i][j] = x + 1;
-            if ((i == cnt && j == n - 1 - cnt) || (i == n - 1 - cnt && j == n - 1 - cnt) || (j == cnt && i == n - 1 - cnt)) {
+            if (res[(i + di + n) % n][(j + dj + n) % n] != -1) {
                 swap(di, dj);
                 dj = -dj;
             }
-            if (i == cnt + 1 && j == cnt) {
-                cnt++;
-                i = cnt;
-                j = cnt;
-                swap(di, dj);
-                dj = -dj;
-                // cout << i << j << endl;
-            } else {
-                i += di;
-                j += dj;
-            }
+            i += di;
+            j += dj;
         }
         return res;
     }
@@ -56,6 +43,8 @@ class Solution {
 
 int main() {
     Solution s;
+    auto res = s.generateMatrix(3);
+    // cout << res << endl;
     for (int n = 1; n <= 10; n++) {
         auto res = s.generateMatrix(n);
         cout << res << endl;
