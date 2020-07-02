@@ -39,6 +39,8 @@ class Solution {
         for (int i = 2; i <= n; i++)
             factorial[i] = i * factorial[i - 1];
 
+        // 此处用 vector 也没啥，毕竟只有 1-9 个数字而已
+        // 因此在 ./Solution3.cpp 中转而用了 vector
         list<int> nums;
         for (int i = 1; i <= n; i++) {
             nums.push_back(i);
