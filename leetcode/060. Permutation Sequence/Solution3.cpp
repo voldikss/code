@@ -1,0 +1,60 @@
+#include <algorithm>
+#include <cassert>
+#include <climits>
+#include <iostream>
+#include <list>
+#include <map>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+template <typename T>
+ostream &operator<<(ostream &os, const list<T> &l) {
+    for (auto &i : l) os << i << " ";
+    return os;
+}
+
+template <typename T>
+ostream &operator<<(ostream &os, const vector<T> &vec) {
+    for (auto x : vec) os << x << " ";
+    return os;
+}
+
+template <typename T>
+ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
+    for (auto &x : vec) os << x << endl;
+    return os;
+}
+
+class Solution {
+  public:
+    string getPermutation(int n, int k) {
+        k--;
+
+        vector<int> factorial(n, 1);
+        for (int i = 1; i < n; i++)
+            factorial[i] = factorial[i - 1] * i;
+
+        vector<char> nums = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+        string res;
+        while (n--) {
+            int m = k / factorial[n];
+            res.push_back(nums[m]);
+            nums.erase(nums.begin() + m);
+            k %= factorial[n];
+        }
+        return res;
+    }
+};
+
+int main() {
+    Solution s;
+    // cout << s.getPermutation(3, 3) << endl;
+    cout << s.getPermutation(4, 9) << endl;
+    return 0;
+}
