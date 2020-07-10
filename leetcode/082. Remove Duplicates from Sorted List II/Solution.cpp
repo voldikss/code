@@ -41,12 +41,11 @@ struct ListNode {
 class Solution {
   public:
     ListNode *deleteDuplicates(ListNode *head) {
-        if (head == NULL) return NULL;
-        if (head->next == NULL) return new ListNode(head->val);
-        ListNode *res = new ListNode(head->val);
+        if (!head || !head->next) return head;
+        ListNode *res = new ListNode(-1);
+        ListNode *q = res;
         ListNode *p1 = head;
         ListNode *p2 = head->next;
-        ListNode *q = res;
         while (p2) {
             if (p1->val != p2->val) {
                 q->next = new ListNode(p1->val);
