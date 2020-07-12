@@ -29,3 +29,11 @@ ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
     for (auto &x : vec) os << x << endl;
     return os;
 }
+
+ostream &operator<<(ostream &os, const ListNode *head) {
+    while (head) {
+        os << head->val << " ";
+        head = head->next;
+    }
+    return os;
+}
