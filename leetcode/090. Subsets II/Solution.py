@@ -4,19 +4,21 @@ from typing import List
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         def dfs(path, index):
-            if index > len(nums):
+            res.append(path[::])
+            if index >= len(nums):
                 return
-            res.add(tuple(path[::]))
 
             for i in range(index, len(nums)):
+                if i > index and nums[i - 1] == nums[i]:
+                    continue
                 path.append(nums[i])
                 dfs(path, i + 1)
                 path.pop()
 
-        res = set()
+        res = []
         nums.sort()
         dfs([], 0)
-        return list(map(lambda t: list(t), res))
+        return res
 
 
 s = Solution()
