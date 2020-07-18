@@ -363,3 +363,8 @@ void print_ascii_tree(TreeNode *t) {
     }
     free_ascii_tree(proot);
 }
+
+ostream &operator<<(ostream &os, TreeNode *tree) {
+    print_ascii_tree(tree);
+    return os;
+}
