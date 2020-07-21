@@ -367,7 +367,7 @@ void print_ascii_tree(TreeNode *t) {
     if (proot->height >= MAX_HEIGHT) {
         printf("(This tree is taller than %d, and may be drawn incorrectly.)\n", MAX_HEIGHT);
     }
-    free_ascii_tree(proot);
+    // free_ascii_tree(proot);
 }
 
 ostream &operator<<(ostream &os, TreeNode *tree) {
