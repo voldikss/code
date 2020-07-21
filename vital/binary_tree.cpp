@@ -345,7 +345,10 @@ void print_level(asciinode *node, int x, int level) {
 void print_ascii_tree(TreeNode *t) {
     asciinode *proot;
     int xmin, i;
-    if (t == nullptr) return;
+    if (t == nullptr) {
+        printf("#\n");
+        return;
+    }
     proot = build_ascii_tree(t);
     compute_edge_lengths(proot);
     for (i = 0; i < proot->height && i < MAX_HEIGHT; i++) {
