@@ -22,9 +22,9 @@ class Solution {
     }
 
     bool isSymmetric(TreeNode *p, TreeNode *q) {
-        if (!p || !q) return !p && !q;
-        if (p->val != q->val) return false;
-        return isSymmetric(p->left, q->right) && isSymmetric(p->right, q->left);
+        if (!p && !q) return true;
+        if (!p || !q) return false;
+        return (p->val != q->val) && isSymmetric(p->left, q->right) && isSymmetric(p->right, q->left);
     }
 };
 
