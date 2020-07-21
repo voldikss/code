@@ -32,6 +32,7 @@ struct TreeNode {
 
 // use stack(bfs) to create a binary tree
 TreeNode *build_binary_tree(const vector<variant<int, nullptr_t>> &nodes) {
+    if (nodes.empty()) return nullptr;
     auto &x = nodes[0];
     if (auto n = std::get_if<nullptr_t>(&x)) return nullptr;
 
