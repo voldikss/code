@@ -16,7 +16,7 @@ struct ListNode {
     int val;
     ListNode *next;
     ListNode(int x)
-        : val(x), next(NULL) {
+        : val(x), next(nullptr) {
     }
 };
 
@@ -29,7 +29,7 @@ ostream &operator<<(ostream &os, const ListNode *head) {
 }
 
 // build a linkedlist from vector of integers
-ListNode *buildList(const vector<int> &nodes) {
+ListNode *build_linkedlist(const vector<int> &nodes) {
     ListNode *head = new ListNode(-1);
     ListNode *p = head;
     for (auto x : nodes) {
