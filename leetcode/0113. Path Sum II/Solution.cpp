@@ -26,15 +26,19 @@ class Solution {
     }
 
   private:
-    void helper(TreeNode *node, vector<vector<int>> &res, vector<int> path, int sum) {
+    void helper(TreeNode *node, vector<vector<int>> &res, vector<int> &path, int sum) {
         if (!node) return;
+        sum -= node->val;
         path.emplace_back(node->val);
-        if (!node->left && !node->right) {
-            if (node->val == sum) res.emplace_back(path);
+        if (!node->left && !node->right && sum == 0) {
+            res.emplace_back(vector<int>(path));
+            path.pop_back();
+            return;
         }
 
-        this->helper(node->left, res, path, sum - node->val);
-        this->helper(node->right, res, path, sum - node->val);
+        this->helper(node->left, res, path, sum);
+        this->helper(node->right, res, path, sum);
+        path.pop_back();
     }
 };
 
