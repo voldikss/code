@@ -18,40 +18,45 @@ class Solution {
   public:
     vector<vector<string>> partition(string s) {
         vector<vector<string>> res;
+        int len = s.size();
+        if (len == 0) {
+            return res;
+        }
+
+        vector<vector<bool>> dp(len, vector<bool>(len));
+        for (int j = 0; j < len; j++) {
+            for (int i = 0; i <= j; i++) {
+                if (s[i] == s[j] && (j - i <= 2 || dp[i + 1][j - 1])) {
+                    dp[i][j] = true;
+                }
+            }
+        }
+
         vector<string> path;
-        this->helper(res, path, s);
+        this->helper(res, path, dp, s, 0, len);
         return res;
     }
 
-    void helper(vector<vector<string>> &res, vector<string> &path, string ss) {
-        if (ss.empty()) {
+    void helper(vector<vector<string>> &res, vector<string> &path, vector<vector<bool>> &dp, string s, int start, int len) {
+        if (start == len) {
             res.push_back(path);
             return;
         }
-        for (int i = 1; i <= ss.size(); i++) {
-            string head = ss.substr(0, i);
-            string tail = ss.substr(i, ss.size());
-            if (!this->isPalindrom(head)) continue;
-            path.push_back(head);
-            this->helper(res, path, tail);
+        for (int i = start; i < len; i++) {
+            if (!dp[start][i]) {
+                continue;
+            }
+            path.push_back(s.substr(start, i + 1 - start));
+            this->helper(res, path, dp, s, i + 1, len);
             path.pop_back();
         }
-    }
-
-    bool isPalindrom(string s) {
-        int l = 0;
-        int r = s.size() - 1;
-        while (l < r) {
-            if (s[l++] != s[r--]) return false;
-        }
-        return true;
     }
 };
 
 int main() {
     Solution s;
-    // cout << s.partition("aab") << endl;
+    cout << s.partition("aab") << endl;
     // cout << s.partition("a") << endl;
-    cout << s.partition("") << endl;
+    // cout << s.partition("") << endl;
     return 0;
 }
