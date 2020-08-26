@@ -13,7 +13,7 @@
 
 ## 二叉树
 
-- 层序遍历时获取当前层数：使用 `q.size()`，见 (LeetCode 103)[./leetcode/0103. Binary Tree Zigzag Level Order Traversal]
+- 层序遍历时获取当前层数：使用 `q.size()`，见 [LeetCode 103](./leetcode/0103. Binary Tree Zigzag Level Order Traversal)
 
 ## 易错
 
@@ -21,6 +21,6 @@
 
 ## 回溯
 
-- 超时的话首先考虑使用 memorization
+- 超时的话首先考虑使用 memorization,构造 cache 时，不一定需要 map，有时候可以直接用数组([LeetCode 139](./leetcode/0139. Word Break/Solution.cpp))
 
 - 改动态规划
