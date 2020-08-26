@@ -21,7 +21,7 @@ class Solution {
             wordSet.insert(w);
         }
 
-        vector<bool> dp(s.length());
+        vector<bool> dp(s.length() + 1);
         dp[0] = true;
         for (int i = 1; i <= s.length(); i++) {
             for (int j = i - 1; j >= 0; j--) {
