@@ -1,4 +1,4 @@
-#include "../../vital/binary_tree.cpp"
+#include "../../include/binary_tree.cpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>

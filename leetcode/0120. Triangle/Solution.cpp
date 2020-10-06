@@ -1,4 +1,4 @@
-#include "../../vital/vector.cpp"
+#include "../../include/vector.cpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>

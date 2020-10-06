@@ -1,5 +1,5 @@
-#include "../../vital/binary_tree.cpp"
-#include "../../vital/linkedlist.cpp"
+#include "../../include/binary_tree.cpp"
+#include "../../include/linkedlist.cpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
