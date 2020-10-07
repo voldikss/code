@@ -14,7 +14,6 @@
 #include <vector>
 using namespace std;
 
-// 超时。。。
 class Solution {
   public:
     ListNode *insertionSortList(ListNode *head) {
@@ -23,27 +22,20 @@ class Solution {
         new_head->next = head;
         ListNode *p = new_head;
         while (p->next) {
-            ListNode *pp = new_head;
             ListNode *Next = p->next;
-            while (pp != p) {
-                if (pp->next->val > p->next->val) {
-                    Next = p->next;
-                    if (pp->next == p) {
-                        pp->next = p->next;
-                        p->next = pp->next->next;
-                        pp->next->next = p;
-                    } else {
-                        ListNode *tmp1 = pp->next->next;
-                        ListNode *tmp2 = p->next->next;
-                        pp->next->next = tmp2;
-                        p->next->next = tmp1;
+            if (p->val > p->next->val) {
+                ListNode *pp = new_head;
+                while (pp != p) {
+                    if (pp->next->val > p->next->val) {
+                        Next = p->next;
                         ListNode *tmp = pp->next;
                         pp->next = p->next;
-                        p->next = tmp;
+                        p->next = p->next->next;
+                        pp->next->next = tmp;
+                        break;
                     }
-                    break;
+                    pp = pp->next;
                 }
-                pp = pp->next;
             }
             p = Next;
         }
