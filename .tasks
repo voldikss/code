@@ -1,13 +1,13 @@
-# vim: set fenc=utf-8 ft=dosini:
+# vim:ft=tasks
 
 [start]
 command=:AsyncTask file-build-and-run
 
 [file-build-and-run]
 command:c=gcc -g "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
-command:cpp=g++ -g "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
+command:cpp=g++ -std=c++17 -g "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" && "$(VIM_FILEDIR)/a.out"
 command:html=:BrowserOpen %
-command:java=javac "$(VIM_FILEPATH)" && java "$(VIM_FILENOEXT)" && echo "$(VIM_PATHNOEXT).class"
+command:java=javac "$(VIM_FILEPATH)" && java "$(VIM_FILENOEXT)" && rm "$(VIM_PATHNOEXT).class"
 command:javascript=node "$(VIM_FILEPATH)"
 command:lua=lua "$(VIM_FILEPATH)"
 command:make=make -f "$(VIM_FILEPATH)"
@@ -15,9 +15,10 @@ command:markdown=:MarkdownPreview
 command:mysql=:%DB
 command:python=python "$(VIM_FILEPATH)"
 command:rust=RUST_BACKTRACE=1 cargo run
-command:sh=sh "$(VIM_FILEPATH)"
+command:sh=bash "$(VIM_FILEPATH)"
 command:sql=:%DB
-command:typescript=tsc %
+command:tex=:execute(b:vimtex.compiler.is_running() ? 'VimtexView' : 'VimtexCompile')
+command:typescript=ts-node $(VIM_FILEPATH)
 command:vim=:source %
 cwd=$(VIM_FILEDIR)
 output=terminal
