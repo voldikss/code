@@ -13,23 +13,25 @@
 #include <vector>
 using namespace std;
 
+// 参考别人的解法，倒序太绝了
 class Solution {
   public:
     bool canJump(vector<int>& nums) {
-        int len = nums.size();
-        if (len == 1) return true;
-        int maxpos = 0;
-        for (int i = 0; i < len; i++) {
-            if (i > maxpos) return false;
-            maxpos = max(maxpos, i + nums[i]);
+        int lastpos = nums.size() - 1;
+        for (int i = nums.size() - 1; i >= 0; i--) {
+            if (nums[i] + i >= lastpos) {
+                lastpos = i;
+            }
         }
-        return maxpos >= len - 1;
+        return lastpos == 0;
     }
 };
 
 int main(int argc, char** argv) {
     Solution s;
-    auto nums = vector<int>{2, 3, 1, 1, 4};
+    // auto nums = vector<int>{3, 2, 1, 0, 4};
+    auto nums = vector<int>{0, 2, 3};
+    // auto nums = vector<int>{2, 3, 1, 1, 4};
     auto res = s.canJump(nums);
     cout << res << endl;
     return 0;
