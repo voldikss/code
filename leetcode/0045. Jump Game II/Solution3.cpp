@@ -23,12 +23,14 @@ class Solution {
         int dp[len];
         dp[0] = 0;
         dp[1] = 1;
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < i; j++) {
+        int j = 0;
+        for (int i = 1; i < len; i++) {
+            while (j < i) {
                 if (nums[j] + j >= i) {
                     dp[i] = dp[j] + 1;
                     break;
                 }
+                j++;
             }
         }
         return dp[len - 1];
