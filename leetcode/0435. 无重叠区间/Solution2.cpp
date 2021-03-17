@@ -29,9 +29,10 @@ class Solution {
         vector<int> length(len, 1);
         length[0] = 1;
         for (int i = 0; i < len; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = i; j >= 0; j--) {
                 if (intervals[j][1] <= intervals[i][0]) {
                     length[i] = max(length[i], length[j] + 1);
+                    break;
                 }
             }
         }
