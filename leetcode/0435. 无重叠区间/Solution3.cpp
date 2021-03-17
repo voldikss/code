@@ -13,17 +13,23 @@
 #include <vector>
 using namespace std;
 
-bool comp(const vector<int>& a, const vector<int>& b) {
-    if (a[0] < b[0]) return true;
-    if (a[0] > b[0]) return false;
-    if (a[1] < b[1]) return true;
-    return false;
-}
-
 class Solution {
   public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
-        // TODO greedy algorithm: better code style
+        if (intervals.size() == 0) return 0;
+        sort(intervals.begin(), intervals.end(), [](const auto& a, const auto& b) {
+            return a[1] < b[1];
+        });
+        int res = 0;
+        auto before = intervals.begin();
+        for (auto it = before + 1; it != intervals.end(); it++) {
+            if ((*it)[0] >= (*before)[1]) {
+                before = it;
+            } else {
+                res++;
+            }
+        }
+        return res;
     }
 };
 
