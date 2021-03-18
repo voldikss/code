@@ -17,20 +17,16 @@ class Solution {
   public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
         if (head->next == nullptr) return head;
-        if (left > 1) {
-            int index = 1;
-            ListNode* p = head;
-            while (index + 1 < left) {
-                p = p->next;
-                index++;
-            }
-            p->next = this->reverse(p->next, index, right)[0];
-            return head;
-        } else {
-            ListNode* p = new ListNode;
-            p->next = head;
-            return this->reverse(p->next, 0, right)[0];
+        ListNode* dammy = new ListNode;
+        dammy->next = head;
+        int index = 0;
+        ListNode* p = dammy;
+        while (index + 1 < left) {
+            p = p->next;
+            index++;
         }
+        p->next = this->reverse(p->next, index, right)[0];
+        return dammy->next;
     }
 
     // 第一个数存储链头，第二个存储链尾（因为要将整体前的一个节点链接到尾部）
