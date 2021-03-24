@@ -31,8 +31,6 @@ class NestedInteger {
 class NestedIterator {
   public:
     NestedIterator(vector<NestedInteger>& nestedList) {
-        // fill(nestedList);
-        // print();
         reverse(nestedList.begin(), nestedList.end());
         for (auto x : nestedList) {
             st.push(x);
@@ -42,39 +40,19 @@ class NestedIterator {
     int next() {
         auto top = st.top();
         st.pop();
-        if (top.isInteger()) {
-            return top.getInteger();
-        } else {
-            auto subNestedIntegerList = top.getList();
-            reverse(subNestedIntegerList.begin(), subNestedIntegerList.end());
-            for (auto x : subNestedIntegerList) {
-                st.push(x);
-            }
-            return next();
-        }
-    }
-
-    bool empty(const NestedInteger& subNestedInteger) {
-        if (subNestedInteger.isInteger()) {
-            return false;
-        } else {
-            for (const auto& x : subNestedInteger.getList()) {
-                if (!(empty(x))) return false;
-            }
-            return true;
-        }
+        return top.getInteger();
     }
 
     bool hasNext() {
-        if (st.empty()) return false;
-        do {
+        while (!st.empty()) {
             auto top = st.top();
-            if (empty(top)) {
-                st.pop();
-            } else {
-                return true;
+            if (top.isInteger()) return true;
+            st.pop();
+            auto list = top.getList();
+            for (int i = list.size() - 1; i >= 0; i--) {
+                st.push(list[i]);
             }
-        } while (!st.empty());
+        }
         return false;
     }
 
