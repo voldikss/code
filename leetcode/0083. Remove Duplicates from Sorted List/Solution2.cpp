@@ -1,3 +1,4 @@
+#include "../../include/linkedlist.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -12,31 +13,7 @@
 #include <vector>
 using namespace std;
 
-template <typename T>
-ostream &operator<<(ostream &os, const list<T> &l) {
-    for (auto &i : l) os << i << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &vec) {
-    for (auto x : vec) os << x << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
-    for (auto &x : vec) os << x << endl;
-    return os;
-}
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x)
-        : val(x), next(NULL) {
-    }
-};
+#define ListNode ListNode<int>
 
 class Solution {
   public:

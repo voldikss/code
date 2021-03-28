@@ -1,4 +1,4 @@
-#include "../../include/vector.cpp"
+#include "../../include/vector.hpp"
 #include <algorithm>
 #include <climits>
 #include <iostream>

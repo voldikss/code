@@ -1,5 +1,5 @@
-#include "../../include/binary_tree.cpp"
-#include "../../include/linkedlist.cpp"
+#include "../../include/binary_tree.hpp"
+#include "../../include/linkedlist.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -15,17 +15,20 @@
 #include <vector>
 using namespace std;
 
+#define TreeNode TreeNode<int>
+#define ListNode ListNode<int>
+
 class Solution {
   public:
-    TreeNode *sortedListToBST(ListNode *head) {
+    TreeNode* sortedListToBST(ListNode* head) {
         return this->helper(head, nullptr);
     }
 
   private:
-    TreeNode *helper(ListNode *begin, ListNode *end) {
+    TreeNode* helper(ListNode* begin, ListNode* end) {
         if (begin == end) return nullptr;
-        ListNode *faster = begin;
-        ListNode *slower = begin;
+        ListNode* faster = begin;
+        ListNode* slower = begin;
         while (true) {
             faster = faster->next;
             if (faster == end) break;
@@ -33,7 +36,7 @@ class Solution {
             if (faster == end) break;
             slower = slower->next;
         }
-        TreeNode *node = new TreeNode(slower->val);
+        TreeNode* node = new TreeNode(slower->val);
         node->left = this->helper(begin, slower);
         node->right = this->helper(slower->next, end);
         return node;
@@ -43,7 +46,7 @@ class Solution {
 int main() {
     Solution s;
     vector<int> nodes = {-10, -3, 0, 5, 9};
-    ListNode *list = build_linkedlist(nodes);
+    ListNode* list = build_linkedlist(nodes);
     auto res = s.sortedListToBST(list);
     cout << res << endl;
     return 0;

@@ -1,5 +1,5 @@
-#include "../../include/binary_tree.cpp"
-#include "../../include/vector.cpp"
+#include "../../include/binary_tree.hpp"
+#include "../../include/vector.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -14,6 +14,8 @@
 #include <variant>
 #include <vector>
 using namespace std;
+
+#define TreeNode TreeNode<int>
 
 // Most common algorithm for inorderTraversal
 class Solution {

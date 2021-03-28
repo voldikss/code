@@ -1,4 +1,4 @@
-#include "../../include/vector.cpp"
+#include "../../include/vector.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -60,7 +60,7 @@ class Solution {
             }
         }
 
-        // cout << intervals << endl;
+        cout << intervals << endl;
         return res;
     }
 };

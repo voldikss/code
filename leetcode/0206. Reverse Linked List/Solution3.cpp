@@ -1,4 +1,4 @@
-#include "../../templates/Solution.cpp"
+#include "../../include/linkedlist.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <vector>
 using namespace std;
+
+#define ListNode ListNode<int>
 
 class Solution {
   public:
@@ -31,7 +33,7 @@ class Solution {
 
 int main() {
     vector<int> nodes = {1, 2, 3, 4, 5};
-    auto list = buildList(nodes);
+    auto list = build_linkedlist<int>(nodes);
     Solution s;
     auto res = s.reverseList(list);
     cout << res << endl;

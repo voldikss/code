@@ -1,5 +1,5 @@
-#include "../../include/binary_tree.cpp"
-#include "../../include/vector.cpp"
+#include "../../include/binary_tree.hpp"
+#include "../../include/vector.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -14,6 +14,8 @@
 #include <variant>
 #include <vector>
 using namespace std;
+
+#define TreeNode TreeNode<int>
 
 class Solution {
   public:
@@ -55,7 +57,7 @@ class Solution {
 int main() {
     Solution s;
     vector<variant<int, nullptr_t>> nodes = {1, 3, 2, 4, 5, 6, 7, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
-    TreeNode *tree = build_binary_tree(nodes);
+    TreeNode *tree = build_binary_tree<int>(nodes);
     auto res = s.zigzagLevelOrder(tree);
     cout << res << endl;
     return 0;

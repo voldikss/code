@@ -1,4 +1,4 @@
-#include "../../include/binary_tree.cpp"
+#include "../../include/binary_tree.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -14,17 +14,19 @@
 #include <vector>
 using namespace std;
 
+#define TreeNode TreeNode<int>
+
 class Solution {
     int res = 0;
 
   public:
-    int sumNumbers(TreeNode *root) {
+    int sumNumbers(TreeNode* root) {
         if (!root) return 0;
         this->visit(root);
         return this->res;
     }
 
-    void visit(TreeNode *root) {
+    void visit(TreeNode* root) {
         if (root->left) {
             root->left->val += 10 * root->val;
             this->visit(root->left);
@@ -41,7 +43,7 @@ class Solution {
 
 int main() {
     vector<variant<int, nullptr_t>> nodes = {4, 9, 0, 5, 1};
-    TreeNode *tree = build_binary_tree(nodes);
+    TreeNode* tree = build_binary_tree(nodes);
 
     Solution s;
     auto res = s.sumNumbers(tree);

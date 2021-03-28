@@ -10,52 +10,59 @@
 #include <stdio.h>
 #include <string.h>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <variant>
 #include <vector>
-using namespace std;
 
+template <typename T>
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
+    T val;
+    TreeNode* left;
+    TreeNode* right;
     TreeNode()
-        : val(0), left(nullptr), right(nullptr) {
+        : left(nullptr), right(nullptr) {
+        if constexpr (std::is_same_v<T, int>) {
+            val = -1;
+        } else if constexpr (std::is_same_v<T, std::string>) {
+            val = "null";
+        } else {
+            val = T();   // class default constructor
+        }
     }
-    TreeNode(int x)
-        : val(x), left(nullptr), right(nullptr) {
-    }
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {
-    }
+    TreeNode(T x)
+        : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(T x, TreeNode* left, TreeNode* right)
+        : val(x), left(left), right(right) {}
 };
 
 // use stack(bfs) to create a binary tree
-TreeNode *build_binary_tree(const vector<variant<int, nullptr_t>> &nodes) {
+template <typename T>
+TreeNode<T>* build_binary_tree(const std::vector<std::variant<T, std::nullptr_t>>& nodes) {
     if (nodes.empty()) return nullptr;
-    auto &x = nodes[0];
-    if (auto n = std::get_if<nullptr_t>(&x)) return nullptr;
+    auto& x = nodes[0];
+    if (auto n = std::get_if<std::nullptr_t>(&x)) return nullptr;
 
-    queue<TreeNode *> q;
-    TreeNode *tree = new TreeNode(-1);
-    tree->left = new TreeNode(get<int>(nodes[0]));
+    std::queue<TreeNode<T>*> q;
+    TreeNode<T>* tree = new TreeNode<T>;
+    tree->left = new TreeNode(std::get<T>(nodes[0]));
     q.push(tree->left);
     int i = 1;
     while (i < nodes.size()) {
         if (q.empty()) break;
-        TreeNode *node = q.front();
+        TreeNode<T>* node = q.front();
         q.pop();
 
-        auto &x = nodes[i++];
-        if (auto n = std::get_if<int>(&x)) {
+        auto& x = nodes[i++];
+        if (auto n = std::get_if<T>(&x)) {
             node->left = new TreeNode(*n);
             q.push(node->left);
         }
 
         if (i >= nodes.size()) break;
 
-        auto &y = nodes[i++];
-        if (auto n = std::get_if<int>(&y)) {
+        auto& y = nodes[i++];
+        if (auto n = std::get_if<T>(&y)) {
             node->right = new TreeNode(*n);
             q.push(node->right);
         }
@@ -63,7 +70,8 @@ TreeNode *build_binary_tree(const vector<variant<int, nullptr_t>> &nodes) {
     return tree->left;
 }
 
-TreeNode *find_min(TreeNode *t) {
+template <typename T>
+TreeNode<T>* find_min(TreeNode<T>* t) {
     if (t == nullptr) {
         return nullptr;
     } else if (t->left == nullptr) {
@@ -73,7 +81,8 @@ TreeNode *find_min(TreeNode *t) {
     }
 }
 
-TreeNode *find_max(TreeNode *t) {
+template <typename T>
+TreeNode<T>* find_max(TreeNode<T>* t) {
     if (t == nullptr) {
         return nullptr;
     } else if (t->right == nullptr) {
@@ -83,7 +92,8 @@ TreeNode *find_max(TreeNode *t) {
     }
 }
 
-TreeNode *find(int elem, TreeNode *t) {
+template <typename T>
+TreeNode<T>* find(T elem, TreeNode<T>* t) {
     if (t == nullptr) {
         return nullptr;
     }
@@ -99,11 +109,12 @@ TreeNode *find(int elem, TreeNode *t) {
 
 //Insert i into the tree t, duplicate will be discarded
 //Return a pointer to the resulting tree.
-TreeNode *insert(int value, TreeNode *t) {
-    TreeNode *new_node;
+template <typename T>
+TreeNode<T>* insert(T value, TreeNode<T>* t) {
+    TreeNode<T>* new_node;
 
     if (t == nullptr) {
-        new_node = new TreeNode;
+        new_node = new TreeNode<T>;
         if (new_node == nullptr) {
             return t;
         }
@@ -125,11 +136,12 @@ TreeNode *insert(int value, TreeNode *t) {
     return t;
 }
 
-TreeNode *destroy(int value, TreeNode *t) {
+template <typename T>
+TreeNode<T>* destroy(T value, TreeNode<T>* t) {
     //Deletes node from the tree
     // Return a pointer to the resulting tree
-    TreeNode *x;
-    TreeNode *tmp_cell;
+    TreeNode<T>* x;
+    TreeNode<T>* tmp_cell;
 
     if (t == nullptr) return nullptr;
 
@@ -173,19 +185,20 @@ struct asciinode {
 };
 
 #define MAX_HEIGHT 1000
-int lprofile[MAX_HEIGHT];
-int rprofile[MAX_HEIGHT];
+static int lprofile[MAX_HEIGHT];
+static int rprofile[MAX_HEIGHT];
 #define INFINITY (1 << 20)
 
 //adjust gap between left and right nodes
-int gap = 3;
+static int gap = 3;
 
 //used for printing next node in the same level,
 //this is the x coordinate of the next char printed
-int print_next;
+static int print_next;
 
-asciinode *build_ascii_tree_recursive(TreeNode *t) {
-    asciinode *node = new asciinode;
+template <typename T>
+asciinode* build_ascii_tree_recursive(TreeNode<T>* t) {
+    asciinode* node = new asciinode;
 
     if (t) {
         node->left = build_ascii_tree_recursive(t->left);
@@ -194,7 +207,12 @@ asciinode *build_ascii_tree_recursive(TreeNode *t) {
         if (node->left) node->left->parent_dir = -1;
         if (node->right) node->right->parent_dir = 1;
 
-        sprintf(node->label, "%d", t->val);
+        if constexpr (std::is_same_v<T, std::string>) {
+            sprintf(node->label, "%s", t->val.c_str());
+        } else {
+            // int
+            sprintf(node->label, "%d", t->val);
+        }
     } else {
         sprintf(node->label, "%s", "#");
     }
@@ -203,50 +221,51 @@ asciinode *build_ascii_tree_recursive(TreeNode *t) {
 }
 
 //Copy the tree into the ascii node structre
-asciinode *build_ascii_tree(TreeNode *t) {
-    asciinode *node;
+template <typename T>
+asciinode* build_ascii_tree(TreeNode<T>* t) {
+    asciinode* node;
     if (t == nullptr) return nullptr;
     node = build_ascii_tree_recursive(t);
     node->parent_dir = 0;
     return node;
 }
 
-void free_ascii_tree(asciinode *node) {
+inline void free_ascii_tree(asciinode* node) {
     if (node == nullptr) return;
     free_ascii_tree(node->left);
     free_ascii_tree(node->right);
     delete node;
 }
 
-void compute_lprofile(asciinode *node, int x, int y) {
+inline void compute_lprofile(asciinode* node, int x, int y) {
     int i, isleft;
     if (node == nullptr) return;
     isleft = (node->parent_dir == -1);
-    lprofile[y] = min(lprofile[y], x - ((node->lablen - isleft) / 2));
+    lprofile[y] = std::min(lprofile[y], x - ((node->lablen - isleft) / 2));
     if (node->left != nullptr) {
         for (i = 1; i <= node->edge_length && y + i < MAX_HEIGHT; i++) {
-            lprofile[y + i] = min(lprofile[y + i], x - i);
+            lprofile[y + i] = std::min(lprofile[y + i], x - i);
         }
     }
     compute_lprofile(node->left, x - node->edge_length - 1, y + node->edge_length + 1);
     compute_lprofile(node->right, x + node->edge_length + 1, y + node->edge_length + 1);
 }
 
-void compute_rprofile(asciinode *node, int x, int y) {
+inline void compute_rprofile(asciinode* node, int x, int y) {
     int i, notleft;
     if (node == nullptr) return;
     notleft = (node->parent_dir != -1);
-    rprofile[y] = max(rprofile[y], x + ((node->lablen - notleft) / 2));
+    rprofile[y] = std::max(rprofile[y], x + ((node->lablen - notleft) / 2));
     if (node->right != nullptr) {
         for (i = 1; i <= node->edge_length && y + i < MAX_HEIGHT; i++) {
-            rprofile[y + i] = max(rprofile[y + i], x + i);
+            rprofile[y + i] = std::max(rprofile[y + i], x + i);
         }
     }
     compute_rprofile(node->left, x - node->edge_length - 1, y + node->edge_length + 1);
     compute_rprofile(node->right, x + node->edge_length + 1, y + node->edge_length + 1);
 }
 
-void compute_edge_lengths(asciinode *node) {
+inline void compute_edge_lengths(asciinode* node) {
     int h, hmin, i, delta;
     if (node == nullptr) return;
     compute_edge_lengths(node->left);
@@ -270,13 +289,13 @@ void compute_edge_lengths(asciinode *node) {
                 lprofile[i] = INFINITY;
             }
             compute_lprofile(node->right, 0, 0);
-            hmin = min(node->right->height, hmin);
+            hmin = std::min(node->right->height, hmin);
         } else {
             hmin = 0;
         }
         delta = 4;
         for (i = 0; i < hmin; i++) {
-            delta = max(delta, gap + 1 + rprofile[i] - lprofile[i]);
+            delta = std::max(delta, gap + 1 + rprofile[i] - lprofile[i]);
         }
 
         //If the node has two children of height 1, then we allow the
@@ -293,17 +312,17 @@ void compute_edge_lengths(asciinode *node) {
     //now fill in the height of node
     h = 1;
     if (node->left != nullptr) {
-        h = max(node->left->height + node->edge_length + 1, h);
+        h = std::max(node->left->height + node->edge_length + 1, h);
     }
     if (node->right != nullptr) {
-        h = max(node->right->height + node->edge_length + 1, h);
+        h = std::max(node->right->height + node->edge_length + 1, h);
     }
     node->height = h;
 }
 
 //This function prints the given level of the given tree, assuming
 //that the node has the given x cordinate.
-void print_level(asciinode *node, int x, int level) {
+inline void print_level(asciinode* node, int x, int level) {
     int i, isleft;
     if (node == nullptr) return;
     isleft = (node->parent_dir == -1);
@@ -343,8 +362,9 @@ void print_level(asciinode *node, int x, int level) {
 
 // prints ascii tree for given Tree structure
 // from https://stackoverflow.com/questions/801740/c-how-to-draw-a-binary-tree-to-the-console
-void print_ascii_tree(TreeNode *t) {
-    asciinode *proot;
+template <typename T>
+void print_ascii_tree(TreeNode<T>* t) {
+    asciinode* proot;
     int xmin, i;
     if (t == nullptr) {
         printf("#\n");
@@ -358,7 +378,7 @@ void print_ascii_tree(TreeNode *t) {
     compute_lprofile(proot, 0, 0);
     xmin = 0;
     for (i = 0; i < proot->height && i < MAX_HEIGHT; i++) {
-        xmin = min(xmin, lprofile[i]);
+        xmin = std::min(xmin, lprofile[i]);
     }
     for (i = 0; i < proot->height; i++) {
         print_next = 0;
@@ -371,7 +391,8 @@ void print_ascii_tree(TreeNode *t) {
     // free_ascii_tree(proot);
 }
 
-ostream &operator<<(ostream &os, TreeNode *tree) {
+template <typename T>
+std::ostream& operator<<(std::ostream& os, TreeNode<T>* tree) {
     print_ascii_tree(tree);
     return os;
 }

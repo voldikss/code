@@ -1,4 +1,4 @@
-#include "../../include/linkedlist.cpp"
+#include "../../include/linkedlist.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -13,6 +13,8 @@
 #include <variant>
 #include <vector>
 using namespace std;
+
+#define ListNode ListNode<int>
 
 class Solution {
   public:

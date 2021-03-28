@@ -1,4 +1,4 @@
-#include "../../include/linkedlist.cpp"
+#include "../../include/linkedlist.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <vector>
 using namespace std;
+
+#define ListNode ListNode<int>
 
 class Solution {
   public:
@@ -48,7 +50,7 @@ int main(int argc, char** argv) {
     Solution s;
     // auto head = build_linkedlist({1, 2, 3, 4, 5, 6, 7, 8});
     // int left = 3, right = 6;
-    auto head = build_linkedlist({1, 2, 3, 4, 5});
+    auto head = build_linkedlist<int>({1, 2, 3, 4, 5});
     int left = 2, right = 4;
     auto res = s.reverseBetween(head, left, right);
     cout << res << endl;

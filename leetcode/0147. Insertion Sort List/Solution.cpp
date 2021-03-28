@@ -1,4 +1,4 @@
-#include "../../include/linkedlist.cpp"
+#include "../../include/linkedlist.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -13,6 +13,8 @@
 #include <variant>
 #include <vector>
 using namespace std;
+
+#define ListNode ListNode<int>
 
 class Solution {
   public:
@@ -44,7 +46,7 @@ class Solution {
 };
 
 int main() {
-    ListNode *l = build_linkedlist({4, 2, 1, 3});
+    ListNode *l = build_linkedlist<int>({4, 2, 1, 3});
     Solution s;
     ListNode *res = s.insertionSortList(l);
     cout << res << endl;

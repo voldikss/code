@@ -10,16 +10,15 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-using namespace std;
 
 template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &vec) {
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
     for (auto x : vec) os << x << " ";
     return os;
 }
 
 template <typename T>
-ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
-    for (auto &x : vec) os << x << endl;
+std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<T>>& vec) {
+    for (auto& x : vec) os << x << std::endl;
     return os;
 }
