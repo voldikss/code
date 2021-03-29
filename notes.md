@@ -13,7 +13,8 @@
 
 ## 二叉树
 
-- 层序遍历时获取当前层数：使用 `q.size()`，见 [LeetCode 103](./leetcode/0103. Binary Tree Zigzag Level Order Traversal)
+- 层序遍历时获取当前层数：使用 `q.size()`，见
+  [LeetCode 103](<./leetcode/0103.\ Binary\ Tree\ Zigzag\ Level\ Order\ Traversal>)
 
 ## 易错
 
@@ -21,7 +22,8 @@
 
 ## 回溯
 
-- 超时的话首先考虑使用 memorization,构造 cache 时，不一定需要 map，有时候可以直接用数组([LeetCode 139](./leetcode/0139. Word Break/Solution.cpp))
+- 超时的话首先考虑使用 memorization,构造 cache 时，不一定需要 map，有时候可以
+  直接用数组
 
 - 改动态规划
 
@@ -29,3 +31,9 @@
 
 - 原地修改，利用已有的空间
 - 多指针，如快慢指针等
+
+## 优先队列的技巧
+
+- C++ 中默认是最大堆，如果想要最小堆而且要承载的元素是数字，那么可以将数字取负
+  数存进去，拿出来用的时候再取相反数变成正数，这样比指定额外参数要方便一些，见
+  [LeetCode](<./leetcode/5710.\ 积压订单中的订单总数/Solution2.cpp>)
