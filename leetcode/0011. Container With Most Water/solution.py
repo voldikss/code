@@ -4,9 +4,6 @@ class Solution:
         :type height: List[int]
         :rtype: int
         """
-        """
-        被自己帅到了，怎么办？        —— LNoving
-        """
         maxA = 0
         tmp = 0
         for i in range(len(height)):
