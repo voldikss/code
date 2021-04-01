@@ -9,7 +9,7 @@ class Solution:
         res = [[]]
         cur = []
         for i in range(len(nums)):
-            if nums[i] == nums[i - 1]:
+            if i > 0 and nums[i] == nums[i - 1]:
                 cur = [tmp + [nums[i]] for tmp in cur]
             else:
                 cur = [tmp + [nums[i]] for tmp in res]
