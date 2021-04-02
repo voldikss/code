@@ -1,14 +1,7 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
+
 #include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
 #include <vector>
 
 template <typename T>
@@ -22,3 +15,5 @@ std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<T>>& ve
     for (auto& x : vec) os << x << std::endl;
     return os;
 }
+
+#endif /* !VECTOR_HPP */

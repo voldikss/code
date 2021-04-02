@@ -1,15 +1,9 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
+#ifndef LINKED_LIST_HPP
+#define LINKED_LIST_HPP
+
 #include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
 #include <string>
 #include <type_traits>
-#include <unordered_map>
 #include <vector>
 
 template <typename T>
@@ -56,3 +50,5 @@ inline ListNode<T>* build_linkedlist(const std::vector<T>& nodes) {
     p->next = nullptr;
     return head->next;
 }
+
+#endif /* !LINKED_LIST_HPP */

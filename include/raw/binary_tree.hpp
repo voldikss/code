@@ -1,17 +1,10 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
+#ifndef BINARY_TREE_HPP
+#define BINARY_TREE_HPP
+
 #include <queue>
-#include <set>
-#include <stack>
-#include <stdio.h>
 #include <string.h>
 #include <string>
 #include <type_traits>
-#include <unordered_map>
 #include <variant>
 #include <vector>
 
@@ -396,3 +389,5 @@ std::ostream& operator<<(std::ostream& os, TreeNode<T>* tree) {
     print_ascii_tree(tree);
     return os;
 }
+
+#endif /* !BINARY_TREE_HPP */

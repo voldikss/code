@@ -1,5 +1,4 @@
-#include "../../include/pair.hpp"
-#include "../../include/vector.hpp"
+#include "../../include/global.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
