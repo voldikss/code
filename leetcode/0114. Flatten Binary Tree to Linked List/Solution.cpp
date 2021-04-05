@@ -1,4 +1,4 @@
-#include "../../include/binary_tree.hpp"
+#include "../../include/global.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>

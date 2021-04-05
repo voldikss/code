@@ -1,5 +1,4 @@
-#include "../../include/binary_tree.hpp"
-#include "../../include/vector.hpp"
+#include "../../include/global.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -14,6 +13,8 @@
 #include <variant>
 #include <vector>
 using namespace std;
+
+#define TreeNode TreeNode<int>
 
 class Solution {
   public:
