@@ -12,24 +12,6 @@
 #include <vector>
 using namespace std;
 
-template <typename T>
-ostream &operator<<(ostream &os, const list<T> &l) {
-    for (auto &i : l) os << i << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &vec) {
-    for (auto x : vec) os << x << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
-    for (auto &x : vec) os << x << endl;
-    return os;
-}
-
 class Solution {
   public:
     bool search(vector<int> &nums, int target) {
