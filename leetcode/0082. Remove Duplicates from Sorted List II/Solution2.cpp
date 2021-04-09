@@ -1,3 +1,4 @@
+#include "../../include/global.hpp"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -12,17 +13,11 @@
 #include <vector>
 using namespace std;
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x)
-        : val(x), next(NULL) {
-    }
-};
+#define ListNode ListNode<int>
 
 class Solution {
   public:
-    ListNode *deleteDuplicates(ListNode *head) {
+    ListNode* deleteDuplicates(ListNode* head) {
         if (!head) return head;
         if (head->next && head->val == head->next->val) {
             while (head->next && head->val == head->next->val) head = head->next;
