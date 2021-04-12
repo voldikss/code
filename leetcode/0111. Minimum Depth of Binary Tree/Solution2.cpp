@@ -1,17 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define TreeNode TreeNode<int>
@@ -20,12 +9,12 @@ class Solution {
     long res = INT64_MAX;
 
   public:
-    int minDepth(TreeNode *root) {
+    int minDepth(TreeNode* root) {
         return this->helper(root, 0);
     }
 
   private:
-    int helper(TreeNode *root, int depth) {
+    int helper(TreeNode* root, int depth) {
         if (depth > this->res) return depth;
         if (!root) return depth;
         if (!root->left && !root->right) return depth + 1;

@@ -1,27 +1,7 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &vec) {
-    for (auto x : vec) os << x << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
-    for (auto &x : vec) os << x << endl;
-    return os;
-}
 
 class Solution {
   private:
@@ -30,7 +10,7 @@ class Solution {
     vector<int> m_nums;
 
   public:
-    vector<int> searchRange(vector<int> &nums, int target) {
+    vector<int> searchRange(vector<int>& nums, int target) {
         pos1 = nums.size();
         pos2 = -1;
         m_target = target;

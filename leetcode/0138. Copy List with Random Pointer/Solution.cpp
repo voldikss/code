@@ -1,24 +1,14 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 // Definition for a Node.
 class Node {
   public:
     int val;
-    Node *next;
-    Node *random;
+    Node* next;
+    Node* random;
 
     Node(int _val) {
         val = _val;
@@ -29,12 +19,12 @@ class Node {
 
 class Solution {
   public:
-    Node *copyRandomList(Node *head) {
+    Node* copyRandomList(Node* head) {
         if (!head) return nullptr;
-        map<Node *, Node *> old2new;
+        map<Node*, Node*> old2new;
 
-        Node *dummy = new Node(0);
-        Node *p = dummy;
+        Node* dummy = new Node(0);
+        Node* p = dummy;
         while (head) {
             if (old2new[head] != nullptr) {
                 p->next = old2new[head];

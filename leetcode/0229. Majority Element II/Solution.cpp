@@ -1,25 +1,11 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <climits>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
 using namespace std;
 
 class Solution {
   public:
-    vector<int> majorityElement(vector<int> &nums) {
+    vector<int> majorityElement(vector<int>& nums) {
         vector<int> res;
         if (nums.size() == 0) return res;
         if (nums.size() == 1) {

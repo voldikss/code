@@ -1,15 +1,6 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 // 2021-03-30 每日一题，重做了一下

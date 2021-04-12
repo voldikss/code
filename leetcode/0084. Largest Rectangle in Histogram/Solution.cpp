@@ -1,20 +1,11 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
 using namespace std;
 
 class Solution {
   public:
-    int largestRectangleArea(first<int> &heights) {
+    int largestRectangleArea(vector<int>& heights) {
         heights.push_back(0);
         int res = 0;
         int n = heights.size();
@@ -42,7 +33,7 @@ int main() {
     Solution s;
     // vector<int> sample{2, 1, 5, 6, 2, 3};
     // vector<int> sample{1,1};
-    first<int> sample{2, 1, 2};
+    vector<int> sample{2, 1, 2};
     int res = s.largestRectangleArea(sample);
     cout << "res: " << res << endl;
 }

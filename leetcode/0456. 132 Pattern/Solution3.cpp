@@ -1,24 +1,12 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <limits>
-#include <map>
-#include <queue>
-#include <stack>
-#include <unordered_map>
-#include <vector>
 using namespace std;
 
 // 尝试失败，貌似无解
 class Solution {
   public:
-    bool find132pattern(vector<int> &nums) {
+    bool find132pattern(vector<int>& nums) {
         int n = nums.size();
         if (n < 3) return false;
         stack<int> s;

@@ -1,22 +1,11 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 struct Node {
     int val;
-    struct Node *next;
+    struct Node* next;
     Node(int x)
         : val(x) {
     }
@@ -24,7 +13,7 @@ struct Node {
 
 class Solution {
   public:
-    int ladderLength(string beginWord, string endWord, vector<string> &wordList) {
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         if (std::find(wordList.begin(), wordList.end(), beginWord) == wordList.end()) {
             wordList.push_back(beginWord);
         }
@@ -46,10 +35,10 @@ class Solution {
         //     cout << "]" << endl;
         // }
 
-        vector<Node *> wordGraph(wordList.size());
+        vector<Node*> wordGraph(wordList.size());
         for (int i = 0; i < wordList.size(); i++) {
             wordGraph[i] = new Node(i);
-            Node *p = wordGraph[i];
+            Node* p = wordGraph[i];
             string word = wordList[i];
             set<int> pushed;
             for (int j = 0; j < len; j++) {
@@ -76,17 +65,17 @@ class Solution {
         return 0;
     }
 
-    int dfs(vector<Node *> wordGraph, Node *entry, vector<string> wordList, string endWord) {
+    int dfs(vector<Node*> wordGraph, Node* entry, vector<string> wordList, string endWord) {
         int cnt = 0;
         set<int> visited;
-        queue<Node *> q;
+        queue<Node*> q;
         q.push(entry);
         visited.insert(entry->val);
         while (!q.empty()) {
             int size = q.size();
             cnt++;
             while (size) {
-                Node *p = q.front();
+                Node* p = q.front();
                 if (wordList[p->val] == endWord) {
                     return cnt;
                 }
@@ -105,9 +94,9 @@ class Solution {
         return 0;
     }
 
-    void printGraph(vector<Node *> &wordGraph, vector<string> &wordList) {
+    void printGraph(vector<Node*>& wordGraph, vector<string>& wordList) {
         for (auto i : wordGraph) {
-            Node *p = i;
+            Node* p = i;
             while (p) {
                 cout << wordList[p->val] << "-->";
                 p = p->next;

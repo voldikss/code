@@ -1,18 +1,6 @@
-#include <algorithm>
-#include <bits/c++config.h>
-#include <cassert>
-#include <climits>
-#include <cstddef>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {

@@ -1,15 +1,6 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 // 该解法提供了一种方便的寻找二进制1所在最低位的方法

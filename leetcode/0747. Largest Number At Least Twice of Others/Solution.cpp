@@ -1,26 +1,11 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
 using namespace std;
 
 class Solution {
   public:
-    int dominantIndex(vector<int> &nums) {
+    int dominantIndex(vector<int>& nums) {
         int idx = 0;
         int maxValue = -1;
         int secondMaxValue = -1;

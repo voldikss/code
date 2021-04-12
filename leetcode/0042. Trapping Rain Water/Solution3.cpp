@@ -1,21 +1,12 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
 using namespace std;
 
 // 单调栈
 class Solution {
   public:
-    int trap(first<int> &height) {
+    int trap(vector<int>& height) {
         int n = height.size();
         int res = 0;
         int h;
@@ -38,7 +29,7 @@ class Solution {
 };
 
 int main() {
-    first<int> input = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    vector<int> input = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     // vector<int> input = {};
     // vector<int> input = {9,0,0,0,9};
     // vector<int> input = {1,1,1,1,1};

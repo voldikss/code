@@ -1,25 +1,16 @@
-//============================================================================
-// FileName: Solution2.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
 using namespace std;
 
 // 这个也该好好学一下
 class Solution {
   public:
-    int largestRectangleArea(first<int> &heights) {
+    int largestRectangleArea(vector<int>& heights) {
         return calcArea(heights, 0, heights.size() - 1);
     }
 
-    int calcArea(first<int> heights, int start, int end) {
+    int calcArea(vector<int> heights, int start, int end) {
         if (start > end) return 0;
         int minIndex = start;
         for (int i = start; i <= end; ++i)
@@ -32,7 +23,7 @@ class Solution {
 
 int main() {
     Solution s;
-    first<int> sample{2, 1, 5, 6, 2, 3};
+    vector<int> sample{2, 1, 5, 6, 2, 3};
     // vector<int> sample{1,1};
     // vector<int> sample{2, 1, 2};
     int res = s.largestRectangleArea(sample);

@@ -1,31 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &vec) {
-    for (auto x : vec) os << x << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
-    for (auto &x : vec) os << x << endl;
-    return os;
-}
 
 class Solution {
   public:
-    vector<int> plusOne(vector<int> &digits) {
+    vector<int> plusOne(vector<int>& digits) {
         int i = digits.size() - 1;
         while (i >= 0) {
             digits[i]++;

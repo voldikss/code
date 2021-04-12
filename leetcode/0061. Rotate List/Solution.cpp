@@ -1,9 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define ListNode ListNode<int>

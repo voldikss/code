@@ -1,30 +1,20 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    bool wordBreak(string s, vector<string> &wordDict) {
+    bool wordBreak(string s, vector<string>& wordDict) {
         set<string> hashSet;
-        for (auto &w : wordDict) {
+        for (auto& w : wordDict) {
             hashSet.insert(w);
         }
         vector<int> cache(s.length(), -1);
         return this->helper(s, 0, hashSet, cache);
     }
 
-    bool helper(string &s, int start, set<string> &hashSet, vector<int> &cache) {
+    bool helper(string& s, int start, set<string>& hashSet, vector<int>& cache) {
         if (start == s.size()) {
             return true;
         }

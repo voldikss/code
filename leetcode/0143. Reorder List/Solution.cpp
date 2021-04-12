@@ -1,27 +1,16 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define ListNode ListNode<int>
 
 class Solution {
   public:
-    void reorderList(ListNode *head) {
+    void reorderList(ListNode* head) {
         if (!head || !head->next) return;
-        deque<ListNode *> dq;
-        ListNode *p = head;
+        deque<ListNode*> dq;
+        ListNode* p = head;
         while (p) {
             dq.push_back(p);
             p = p->next;

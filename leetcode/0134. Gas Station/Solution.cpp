@@ -1,21 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
         for (int i = 0; i < gas.size(); i++) {
             int res = this->check(i, gas, cost);
             if (res != -1) return res;
@@ -23,7 +13,7 @@ class Solution {
         return -1;
     }
 
-    int check(int station, vector<int> &gas, vector<int> &cost) {
+    int check(int station, vector<int>& gas, vector<int>& cost) {
         int remain = 0;
         int length = gas.size();
         int position = station;

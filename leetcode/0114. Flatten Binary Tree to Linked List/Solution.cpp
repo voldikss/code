@@ -1,26 +1,15 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define TreeNode TreeNode<int>
 
 class Solution {
   public:
-    void flatten(TreeNode *root) {
+    void flatten(TreeNode* root) {
         if (!root) return;
-        TreeNode *p = root->left;
+        TreeNode* p = root->left;
         while (p && p->right) p = p->right;
         if (p) {
             p->right = root->right;
@@ -34,7 +23,7 @@ class Solution {
 int main() {
     Solution s;
     vector<variant<int, nullptr_t>> nodes = {1, nullptr, 2, 3, nullptr};
-    TreeNode *tree = build_binary_tree(nodes);
+    TreeNode* tree = build_binary_tree(nodes);
     s.flatten(tree);
     cout << tree << endl;
     return 0;

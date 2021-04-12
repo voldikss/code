@@ -1,22 +1,11 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    vector<vector<int>> transpose(vector<vector<int>> &A) {
+    vector<vector<int>> transpose(vector<vector<int>>& A) {
         int row = A.size();
         if (row == 0) return {};
         int col = A[0].size();

@@ -1,19 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    vector<vector<int>> fourSum(vector<int> &nums, int target) {
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
         if (nums.size() < 4) return {};
         sort(nums.begin(), nums.end());
         vector<vector<int>> res;

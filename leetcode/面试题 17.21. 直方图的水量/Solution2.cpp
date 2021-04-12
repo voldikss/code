@@ -1,21 +1,10 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <numeric>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
-public:
+  public:
     int trap(vector<int>& heights) {
         int len = heights.size();
         int left = 0;

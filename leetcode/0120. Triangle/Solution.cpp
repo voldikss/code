@@ -1,22 +1,11 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    int minimumTotal(vector<vector<int>> &triangle) {
+    int minimumTotal(vector<vector<int>>& triangle) {
         if (triangle.size() == 1) return triangle[0][0];
         triangle[1][0] += triangle[0][0];
         triangle[1][1] += triangle[0][0];

@@ -1,22 +1,11 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    void solve(vector<vector<char>> &board) {
+    void solve(vector<vector<char>>& board) {
         int m = board.size();
         if (m == 0) return;
         int n = board[0].size();
@@ -37,7 +26,7 @@ class Solution {
         }
     }
 
-    void dfs(vector<vector<char>> &board, int x, int y) {
+    void dfs(vector<vector<char>>& board, int x, int y) {
         if (board[x][y] == 'O') {
             board[x][y] = '#';
             if (x - 1 >= 0 && board[x - 1][y] == 'O') {

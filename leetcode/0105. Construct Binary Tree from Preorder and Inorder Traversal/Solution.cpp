@@ -1,27 +1,16 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define TreeNode TreeNode<int>
 
 class Solution {
   public:
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         if (preorder.empty()) return nullptr;
 
-        TreeNode *node = new TreeNode(preorder[0]);
+        TreeNode* node = new TreeNode(preorder[0]);
         if (preorder.size() == 1) return node;
 
         int i;

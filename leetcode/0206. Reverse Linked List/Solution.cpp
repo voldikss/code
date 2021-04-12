@@ -1,26 +1,16 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define ListNode ListNode<int>
 
 class Solution {
   public:
-    ListNode *reverseList(ListNode *head) {
+    ListNode* reverseList(ListNode* head) {
         if (!head) return nullptr;
-        ListNode *p = head;
-        ListNode *tail = head;
+        ListNode* p = head;
+        ListNode* tail = head;
         while (tail->next) tail = tail->next;
 
         this->rev(head);
@@ -29,9 +19,9 @@ class Solution {
         return tail;
     }
 
-    ListNode *rev(ListNode *node) {
+    ListNode* rev(ListNode* node) {
         if (!node->next) return node;
-        ListNode *p = this->rev(node->next);
+        ListNode* p = this->rev(node->next);
         p->next = node;
         return node;
     }
@@ -39,11 +29,11 @@ class Solution {
 
 int main() {
     Solution s;
-    ListNode *head = new ListNode(-1);
-    ListNode *p = head;
+    ListNode* head = new ListNode(-1);
+    ListNode* p = head;
     vector<int> nodes = {1, 2, 3, 4, 5};
     for (auto x : nodes) {
-        ListNode *node = new ListNode(x);
+        ListNode* node = new ListNode(x);
         p->next = node;
         p = p->next;
     }

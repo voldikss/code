@@ -1,17 +1,6 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <stack>
-#include <unordered_map>
-#include <vector>
 using namespace std;
 
 class Solution {

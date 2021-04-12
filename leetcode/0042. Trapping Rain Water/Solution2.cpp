@@ -1,27 +1,18 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
 using namespace std;
 
 // 动态规划，暴力法的优化
 class Solution {
   public:
-    int trap(first<int> &height) {
+    int trap(vector<int>& height) {
         int n = height.size();
-        if (n==0) return 0;
+        if (n == 0) return 0;
         int res = 0;
 
-        first<int> left_max(n);
-        first<int> right_max(n);
+        vector<int> left_max(n);
+        vector<int> right_max(n);
 
         left_max[0] = height[0];
         for (int i = 1; i < n; ++i) {
@@ -41,7 +32,7 @@ class Solution {
 
 int main() {
     // vector<int> input = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-    first<int> input = {};
+    vector<int> input = {};
     // vector<int> input = {9,0,0,0,9};
     // vector<int> input = {1,1,1,1,1};
     Solution s;

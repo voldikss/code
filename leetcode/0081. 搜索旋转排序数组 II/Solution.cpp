@@ -1,20 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    bool search(vector<int> &nums, int target) {
+    bool search(vector<int>& nums, int target) {
         if (nums.size() == 0) return false;
         if (nums.size() == 1) return nums[0] == target;
         int left;

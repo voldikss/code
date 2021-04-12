@@ -1,21 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
         int total = 0;
         int remain = 0;
         int position = 0;

@@ -1,60 +1,51 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
 using namespace std;
 
 class Solution {
-public:
-  first<int> constructArray(int n, int k) {
-    first<int> res;
-    int nn = n;
-    bool flag = 1;
-    int interval = nn - 1;
-    int count = 0;
+  public:
+    vector<int> constructArray(int n, int k) {
+        vector<int> res;
+        int nn = n;
+        bool flag = 1;
+        int interval = nn - 1;
+        int count = 0;
 
-    if (k == 1) {
-      for (int i = 1; i <= n; ++i) res.push_back(i);
-      return res;
-    }
+        if (k == 1) {
+            for (int i = 1; i <= n; ++i) res.push_back(i);
+            return res;
+        }
 
-    res.push_back(nn);
-    while (res.size() < n) {
-      if (flag) {
-        res.push_back(nn - interval);
-        nn -= interval;
-      } else {
-        res.push_back(nn + interval);
-        nn += interval;
-      }
-      ++count;
-      interval--;
-      flag = !flag;
-      if (count == k - 1) {
-        if (flag)
-          for (int i = nn - 1; res.size() < n; --i) res.push_back(i);
-        else
-          for (int i = nn + 1; res.size() < n; ++i) res.push_back(i);
-        break;
-      }
+        res.push_back(nn);
+        while (res.size() < n) {
+            if (flag) {
+                res.push_back(nn - interval);
+                nn -= interval;
+            } else {
+                res.push_back(nn + interval);
+                nn += interval;
+            }
+            ++count;
+            interval--;
+            flag = !flag;
+            if (count == k - 1) {
+                if (flag)
+                    for (int i = nn - 1; res.size() < n; --i) res.push_back(i);
+                else
+                    for (int i = nn + 1; res.size() < n; ++i) res.push_back(i);
+                break;
+            }
+        }
+        return res;
     }
-    return res;
-  }
 };
 
 int main() {
-  Solution s;
-  first<int> res = s.constructArray(3, 1);
-  for (auto i : res) cout << i << " ";
-  cout << endl;
+    Solution s;
+    vector<int> res = s.constructArray(3, 1);
+    for (auto i : res) cout << i << " ";
+    cout << endl;
 }
 
 // 我的方法是

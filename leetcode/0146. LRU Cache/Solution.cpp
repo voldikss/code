@@ -1,34 +1,24 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 struct Node {
     int val;
-    Node *next;
-    Node *prev;
+    Node* next;
+    Node* prev;
     Node()
         : val(0), next(nullptr), prev(nullptr) {
     }
     Node(int x)
         : val(x), next(nullptr), prev(nullptr) {
     }
-    Node(int x, Node *next, Node *prev)
+    Node(int x, Node* next, Node* prev)
         : val(x), next(next), prev(prev) {
     }
 };
 
-ostream &operator<<(ostream &os, const Node *head) {
+ostream& operator<<(ostream& os, const Node* head) {
     while (head) {
         os << head->val << " ";
         head = head->next;
@@ -41,7 +31,7 @@ class LRUCache {
     int capacity, size;
     Node *head, *tail;
     map<int, int> kv_map;
-    map<int, Node *> p_map;
+    map<int, Node*> p_map;
     LRUCache(int capacity) {
         this->capacity = capacity;
         this->size = 0;
@@ -64,7 +54,7 @@ class LRUCache {
         // not exist
         if (this->p_map.find(key) == this->p_map.end()) {
             // create node
-            Node *p = new Node(key);
+            Node* p = new Node(key);
             this->p_map[key] = p;
             this->add_to_head(p);
 
@@ -73,7 +63,7 @@ class LRUCache {
             if (this->size > this->capacity) {
                 this->kv_map.erase(tail->prev->val);
                 this->p_map.erase(tail->prev->val);
-                Node *last = tail->prev;
+                Node* last = tail->prev;
                 tail->prev = last->prev;
                 cout << (last->prev == nullptr) << endl;
                 last->prev->next = tail;
@@ -87,13 +77,13 @@ class LRUCache {
     }
 
     void swim(int key) {
-        Node *p = this->p_map[key];
+        Node* p = this->p_map[key];
         p->prev->next = p->next;
         p->next->prev = p->prev;
         this->add_to_head(p);
     }
 
-    void add_to_head(Node *p) {
+    void add_to_head(Node* p) {
         p->next = head->next;
         head->next->prev = p;
         p->prev = head;
@@ -102,7 +92,7 @@ class LRUCache {
 };
 
 int main() {
-    LRUCache *cache = new LRUCache(2);
+    LRUCache* cache = new LRUCache(2);
 
     cache->put(1, 1);
     cache->put(2, 2);

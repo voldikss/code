@@ -1,20 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    bool searchMatrix(vector<vector<int>> &matrix, int target) {
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
         if (matrix.size() == 0 || matrix[0].size() == 0) return false;
 
         int m = matrix.size();

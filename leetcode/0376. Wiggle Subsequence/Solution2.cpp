@@ -1,17 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 enum State {
@@ -33,7 +22,7 @@ class Solution {
                 if (nums[i] > nums[i - 1]) {
                     state = State::up;
                     res++;
-                } else if (nums[i] < nums[i-1]) {
+                } else if (nums[i] < nums[i - 1]) {
                     state = State::down;
                     res++;
                 }

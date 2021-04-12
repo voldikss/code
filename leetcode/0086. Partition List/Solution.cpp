@@ -1,29 +1,19 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define ListNode ListNode<int>
 
 class Solution {
   public:
-    ListNode *partition(ListNode *head, int x) {
+    ListNode* partition(ListNode* head, int x) {
         // l: less; ge: greater_equal
         // l_p: pointer of less; ge_p: pointer of greater_equal
-        ListNode *l = new ListNode(-1);
-        ListNode *l_p = l;
-        ListNode *ge = new ListNode(-1);
-        ListNode *ge_p = ge;
+        ListNode* l = new ListNode(-1);
+        ListNode* l_p = l;
+        ListNode* ge = new ListNode(-1);
+        ListNode* ge_p = ge;
         while (head) {
             if (head->val < x) {
                 l_p->next = head;
@@ -45,8 +35,8 @@ int main() {
     vector<int> input = {1, 4, 3, 2, 5, 2};
     int x = 3;
 
-    ListNode *head = new ListNode(-1);
-    ListNode *p = head;
+    ListNode* head = new ListNode(-1);
+    ListNode* p = head;
     for (auto x : input) {
         p->next = new ListNode(x);
         p = p->next;

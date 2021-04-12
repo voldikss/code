@@ -1,18 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cstddef>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
@@ -22,7 +10,7 @@ class Solution {
         auto vec2 = vector<int>(len);
         nums[len - 1] = 0;
         for (int i = len - 2; i >= 0; i--) {
-            int min_steps = INT_MAX / 2; // ...
+            int min_steps = INT_MAX / 2;   // ...
             if (nums[i] == 0) {
                 vec2[i] = min_steps;
                 continue;

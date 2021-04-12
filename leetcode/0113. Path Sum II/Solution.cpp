@@ -1,24 +1,13 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define TreeNode TreeNode<int>
 
 class Solution {
   public:
-    vector<vector<int>> pathSum(TreeNode *root, int sum) {
+    vector<vector<int>> pathSum(TreeNode* root, int sum) {
         vector<vector<int>> res;
         if (!root) return res;
         vector<int> path;
@@ -27,7 +16,7 @@ class Solution {
     }
 
   private:
-    void helper(TreeNode *node, vector<vector<int>> &res, vector<int> &path, int sum) {
+    void helper(TreeNode* node, vector<vector<int>>& res, vector<int>& path, int sum) {
         if (!node) return;
         sum -= node->val;
         path.emplace_back(node->val);

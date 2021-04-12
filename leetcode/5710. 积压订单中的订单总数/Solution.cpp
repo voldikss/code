@@ -1,15 +1,6 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define PII pair<int, int>
@@ -71,7 +62,6 @@ class Solution {
         return ans;
     }
 };
-
 
 int main(int argc, char** argv) {
     Solution s;

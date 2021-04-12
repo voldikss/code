@@ -1,17 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
@@ -37,7 +26,7 @@ class Solution {
         return res;
     }
 
-    void helper(vector<vector<string>> &res, vector<string> &path, vector<vector<bool>> &dp, string s, int start, int len) {
+    void helper(vector<vector<string>>& res, vector<string>& path, vector<vector<bool>>& dp, string s, int start, int len) {
         if (start == len) {
             res.push_back(path);
             return;

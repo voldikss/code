@@ -1,10 +1,3 @@
-//============================================================================
-// FileName: Solution.c
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
-
 #include <stdio.h>
 #include <stdlib.h>
 

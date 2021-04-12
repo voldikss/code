@@ -1,40 +1,13 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
-
-template <typename T>
-ostream &operator<<(ostream &os, const list<T> &l) {
-    for (auto &i : l) os << i << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &vec) {
-    for (auto x : vec) os << x << " ";
-    return os;
-}
-
-template <typename T>
-ostream &operator<<(ostream &os, const vector<vector<T>> &vec) {
-    for (auto &x : vec) os << x << endl;
-    return os;
-}
 
 class Solution {
     vector<vector<int>> path;
 
   public:
-    bool exist(vector<vector<char>> &board, string word) {
+    bool exist(vector<vector<char>>& board, string word) {
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board[0].size(); j++) {
                 map<vector<int>, bool> used;
@@ -44,13 +17,13 @@ class Solution {
         return false;
     }
 
-    bool dfs(vector<vector<char>> &board, int m, int n, string word, int x, map<vector<int>, bool> &used) {
+    bool dfs(vector<vector<char>>& board, int m, int n, string word, int x, map<vector<int>, bool>& used) {
         if (board[m][n] != word[x]) return false;
         if (x >= word.size() - 1) return true;
         used[{m, n}] = true;
 
         vector<vector<int>> coors = {{m - 1, n}, {m, n - 1}, {m, n + 1}, {m + 1, n}};
-        for (auto &co : coors) {
+        for (auto& co : coors) {
             int i = co[0];
             int j = co[1];
             if (i < 0 || i > board.size() - 1 || j < 0 || j > board[0].size() - 1) continue;

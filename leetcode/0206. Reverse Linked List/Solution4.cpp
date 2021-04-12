@@ -1,25 +1,15 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define ListNode ListNode<int>
 
 class Solution {
   public:
-    ListNode *reverseList(ListNode *head) {
+    ListNode* reverseList(ListNode* head) {
         if (!head || !head->next) return head;
-        ListNode *p = this->reverseList(head->next);
+        ListNode* p = this->reverseList(head->next);
         head->next->next = head;
         head->next = nullptr;
         return p;

@@ -1,24 +1,13 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 #define TreeNode TreeNode<int>
 
 class Solution {
   public:
-    bool isSameTree(TreeNode *p, TreeNode *q) {
+    bool isSameTree(TreeNode* p, TreeNode* q) {
         if (!p || !q) return !p && !q;
         if (p->val != q->val) return false;
         return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);

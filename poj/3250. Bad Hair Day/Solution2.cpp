@@ -1,21 +1,8 @@
-//============================================================================
-// FileName: Solution.cpp
-// Descrption:
-// Author: voldikss <dyzplus@gmail.com>
-// GitHub: https://github.com/voldikss
-//============================================================================
+#include <bits/stdc++.h>
 
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <stack>
-#include <vector>
 #define Inf 0xfffff
 
 using namespace std;
-
-#include <cstdio>
-#include <stack>
 
 int main() {
     int n, i;

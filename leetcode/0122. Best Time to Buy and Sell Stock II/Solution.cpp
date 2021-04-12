@@ -1,21 +1,11 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
   public:
-    int maxProfit(vector<int> &prices) {
+    int maxProfit(vector<int>& prices) {
         int res = 0;
         for (int i = 0; i < prices.size() - 1; i++) res += max(prices[i + 1] - prices[i], 0);
         return res;

@@ -1,17 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <variant>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
@@ -21,7 +10,7 @@ class Solution {
         return G(n, cache);
     }
 
-    int G(int n, map<int, int> &cache) {
+    int G(int n, map<int, int>& cache) {
         if (n == 0 || n == 1) return 1;
         if (cache.count(n)) return cache.find(n)->second;
         int res = 0;
@@ -30,7 +19,7 @@ class Solution {
         return res;
     }
 
-    int F(int i, int n, map<int, int> &cache) {
+    int F(int i, int n, map<int, int>& cache) {
         return G(i - 1, cache) * G(n - i, cache);
     }
 };

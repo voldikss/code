@@ -1,17 +1,6 @@
-#include <algorithm>
-#include <cassert>
-#include <bitset>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "../../include/global.hpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 const int capacity = 80000;

@@ -1,15 +1,6 @@
 #include "../../include/global.hpp"
-#include <algorithm>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 // 佟湘玉：把我都给气笑咧。。。
@@ -80,7 +71,7 @@ int main(int argc, char** argv) {
     // vector<int> nums{5, 4, 9, 8};   // 4
     // vector<int> nums{9, 3, 4, 1, 0, 5};   // 1
     // vector<int> nums{8, 4, 0, 4, 3, 9, 10, 3, 4};   // 2
-    vector<int> nums{1,2,4,3,5,4,7,2};   // 
+    vector<int> nums{1, 2, 4, 3, 5, 4, 7, 2};   //
     // vector<int> nums{4, 10, 4};   // 1
     auto res = s.findNumberOfLIS(nums);
     cout << res << endl;

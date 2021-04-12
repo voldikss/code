@@ -1,4 +1,6 @@
+#include "../../include/global.hpp"
 #include <bits/stdc++.h>
+
 using namespace std;
 
 // https://leetcode-cn.com/problems/largest-number/solution/c-4ms-by-harold-15/
