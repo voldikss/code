@@ -14,6 +14,17 @@ void insertion_sort(T arr[], int size) {
     }
 }
 
+template <typename T>
+void insert_sort(T arr[], int l, int r) {
+    for (int i = l; i <= r; i++) {
+        T tmp = arr[i];
+        int j;
+        for (j = i; j > l && arr[j - 1] > tmp; j--)
+            arr[j] = arr[j - 1];
+        arr[j] = tmp;
+    }
+}
+
 }   // namespace sort
 
 #endif /* !INSERTION_SORT_HPP */

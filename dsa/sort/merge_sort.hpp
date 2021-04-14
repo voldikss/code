@@ -8,41 +8,41 @@
 namespace sort {
 
 /*
- * merge arr[left, mid] and arr[mid+1, right]
+ * merge arr[l, m] and arr[m+1, r]
  */
 template <typename T>
-void __merge(T arr[], int left, int mid, int right) {
-    T* aux = new T[right - left + 1];
+void __merge(T arr[], int l, int m, int r) {
+    T* aux = new T[r - l + 1];
     if constexpr (std::is_trivial_v<T> && std::is_standard_layout_v<T>) {
-        memcpy(aux, arr, sizeof(T) * (right - left + 1));
+        memcpy(aux, &arr[l], sizeof(T) * (r - l + 1));
     } else {
-        for (int i = left; i <= right; i++) {
-            aux[i - left] = arr[i];
+        for (int i = l; i <= r; i++) {
+            aux[i - l] = arr[i];
         }
     }
 
-    int i = left;
-    int j = mid + 1;
-    for (int k = left; k <= right; k++) {
-        if (i > mid)
-            arr[k] = aux[j++ - left];
-        else if (j > right)
-            arr[k] = aux[i++ - left];
-        else if (aux[i - left] < aux[j - left])
-            arr[k] = aux[i++ - left];
+    int i = l;
+    int j = m + 1;
+    for (int k = l; k <= r; k++) {
+        if (i > m)
+            arr[k] = aux[j++ - l];
+        else if (j > r)
+            arr[k] = aux[i++ - l];
+        else if (aux[i - l] < aux[j - l])
+            arr[k] = aux[i++ - l];
         else
-            arr[k] = aux[j++ - left];
+            arr[k] = aux[j++ - l];
     }
     delete[] aux;
 }
 
 template <typename T>
-void __merge_sort(T arr[], int left, int right) {
-    if (left >= right) return;
-    int mid = left + (right - left) / 2;
-    __merge_sort(arr, 0, mid);
-    __merge_sort(arr, mid + 1, right);
-    __merge(arr, 0, mid, right);
+void __merge_sort(T arr[], int l, int r) {
+    if (l >= r) return;
+    int m = l + (r - l) / 2;
+    __merge_sort(arr, l, m);
+    __merge_sort(arr, m + 1, r);
+    __merge(arr, l, m, r);
 }
 
 template <typename T>

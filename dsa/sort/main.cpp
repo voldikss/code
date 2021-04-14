@@ -16,7 +16,7 @@ using namespace sort;
     for (int i = 0; i < ARRLEN(arr); i++) \
         std::cout << arr[i] << " ";
 
-int arr[] = {20, 6, 16, 18, 1, 20, 18, 2, 3, 5};
+int arr[] = {8, 3, 13, 4, 5, 1, 6, 9, 12, 14, 12, 18, 13, 9, 15, 15, 12, 18, 18, 2, 10, 19, 17, 14, 0, 12, 12, 3, 4, 13, 17, 10, 18, 10, 6, 13, 20, 17, 3, 20};
 
 void test_bubble_sort() {
     int aux[ARRLEN(arr)];
