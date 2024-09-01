@@ -5,12 +5,12 @@ import (
 	"fmt"
 )
 
-type Elemment struct {
+type Item struct {
 	index int
 	value int
 }
 
-type PriorityQueue []Elemment
+type PriorityQueue []Item
 
 func (p PriorityQueue) Less(i, j int) bool {
 	return p[i].value > p[j].value
@@ -24,8 +24,11 @@ func (p PriorityQueue) Swap(i, j int) {
 	p[i], p[j] = p[j], p[i]
 }
 
+// 模拟 Top 方法
 func (p PriorityQueue) Top() any {
-	return p[p.Len()-1]
+	x := p.Pop()
+	p.Push(x)
+	return x
 }
 
 func (p PriorityQueue) IsEmpty() bool {
@@ -33,7 +36,7 @@ func (p PriorityQueue) IsEmpty() bool {
 }
 
 func (p *PriorityQueue) Push(x any) {
-	*p = append(*p, x.(Elemment))
+	*p = append(*p, x.(Item))
 }
 
 func (p *PriorityQueue) Pop() any {
@@ -48,7 +51,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 	pq := &PriorityQueue{}
 	heap.Init(pq)
 	for i := 0; i < k; i++ {
-		heap.Push(pq, Elemment{value: nums[i], index: i})
+		heap.Push(pq, Item{value: nums[i], index: i})
 	}
 
 	result := []int{}
@@ -56,9 +59,9 @@ func maxSlidingWindow(nums []int, k int) []int {
 	// 要从 k-1 开始遍历，是因为 pq 没有类似于 .top() 的方法
 	for i := k - 1; i < len(nums); i++ {
 		// 先把当前的新进来的元素 push 进去
-		heap.Push(pq, Elemment{index: i, value: nums[i]})
+		heap.Push(pq, Item{index: i, value: nums[i]})
 		for true {
-			top := heap.Pop(pq).(Elemment)
+			top := heap.Pop(pq).(Item)
 			if top.index > i-k {
 				result = append(result, top.value)
 				// 因为没有类似于 .top() 的方法，因此此处再 push 回去
