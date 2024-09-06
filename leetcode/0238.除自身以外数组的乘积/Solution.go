@@ -30,6 +30,6 @@ func productExceptSelf(nums []int) []int {
 
 func main() {
 	input := []int{1, 2, 3, 4}
-	output := productExceptSelf(input)
+	output := productExceptSelf(input) // [24 12 8 6]
 	fmt.Println(output)
 }
